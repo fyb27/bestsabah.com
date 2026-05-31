@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Best Sabah</title>
+  <meta name="description" content="All posts from Best Sabah — food, travel, fitness and local life in Kota Kinabalu.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">Best<span>Sabah</span></a>
+      <nav>
+        <ul class="site-nav" id="site-nav">
+          <li><a href="index.html">Home</a></li>
+          <li class="nav-item">
+            <a href="blog.html">Blog ▾</a>
+            <ul class="nav-dropdown">
+              <li><a href="blog.html?cat=food">Food &amp; Drinks</a></li>
+              <li><a href="blog.html?cat=cafes">Cafes</a></li>
+              <li><a href="blog.html?cat=things-to-do">Things To Do</a></li>
+              <li><a href="blog.html?cat=lifestyle">Lifestyle</a></li>
+              <li><a href="blog.html?cat=hidden-gems">Hidden Gems</a></li>
+              <li><a href="blog.html?cat=travel">Travel &amp; Outdoors</a></li>
+              <li><a href="blog.html?cat=shopping">Shopping</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="blog-header">
+    <h1 class="blog-header__title">All Stories</h1>
+    <p class="blog-header__sub">Food, travel, fitness and real life from KK</p>
+  </div>
+
+  <div class="category-tabs">
+    <button class="category-tab active" data-cat="all">All</button>
+    <button class="category-tab" data-cat="food">Food &amp; Drinks</button>
+    <button class="category-tab" data-cat="cafes">Cafes</button>
+    <button class="category-tab" data-cat="things-to-do">Things To Do</button>
+    <button class="category-tab" data-cat="lifestyle">Lifestyle</button>
+    <button class="category-tab" data-cat="hidden-gems">Hidden Gems</button>
+    <button class="category-tab" data-cat="travel">Travel &amp; Outdoors</button>
+    <button class="category-tab" data-cat="shopping">Shopping</button>
+  </div>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="cards-grid" id="posts-grid">
+
+        <a href="posts/island-hopping-kk.html" class="card" data-cat="things-to-do">
+          <div class="card__img">
+            <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800&q=75" alt="KK Islands" loading="lazy">
+          </div>
+          <div class="card__body">
+            <span class="card__cat">Things To Do</span>
+            <div class="card__title">Island Hopping from KK: The Honest Guide to Tunku Abdul Rahman Park</div>
+            <p class="card__excerpt">Five islands. One park. Which ones are worth it, which are overrated, and when to go to beat the crowds.</p>
+            <div class="card__footer"><span>June 2026</span></div>
+          </div>
+        </a>
+
+        <a href="posts/kundasang-morning.html" class="card" data-cat="hidden-gems">
+          <div class="card__img">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=75" alt="Kundasang" loading="lazy">
+          </div>
+          <div class="card__body">
+            <span class="card__cat">Hidden Gems</span>
+            <div class="card__title">Kundasang in the Morning: Sabah's Highland Secret Two Hours from KK</div>
+            <p class="card__excerpt">Cool air, vegetable farms, and one of the best views in all of Borneo. Only two hours from KK.</p>
+            <div class="card__footer"><span>June 2026</span></div>
+          </div>
+        </a>
+
+        <a href="posts/kopi-shops-kk.html" class="card" data-cat="cafes">
+          <div class="card__img">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=75" alt="Kopi" loading="lazy">
+          </div>
+          <div class="card__body">
+            <span class="card__cat">Cafes</span>
+            <div class="card__title">KK's Best Kopi Shops: Old Corners, Strong Brews, and Good Mornings</div>
+            <p class="card__excerpt">The traditional kopi culture in Kota Kinabalu is alive, unhurried, and quietly wonderful.</p>
+            <div class="card__footer"><span>June 2026</span></div>
+          </div>
+        </a>
+
+        <a href="posts/supper-spots-kk.html" class="card" data-cat="food">
+          <div class="card__img">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=75" alt="Food" loading="lazy">
+          </div>
+          <div class="card__body">
+            <span class="card__cat">Food &amp; Drinks</span>
+            <div class="card__title">The Best Supper Spots in KK: Where Locals Actually Go After 10pm</div>
+            <p class="card__excerpt">KK comes alive late. Here's where to go when the hunger hits after midnight.</p>
+            <div class="card__footer"><span>June 2026</span></div>
+          </div>
+        </a>
+
+        <a href="posts/wfh-kk.html" class="card" data-cat="lifestyle">
+          <div class="card__img">
+            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=75" alt="KK skyline" loading="lazy">
+          </div>
+          <div class="card__body">
+            <span class="card__cat">Lifestyle</span>
+            <div class="card__title">Living and Working Remotely in KK: An Honest One-Year Review</div>
+            <p class="card__excerpt">What nobody tells you about doing WFH in Kota Kinabalu — the good, the bad, and the traffic.</p>
+            <div class="card__footer"><span>June 2026</span></div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-logo">Best<span>Sabah</span></div>
+    <ul class="footer-links">
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 BestSabah.com — Kota Kinabalu, Malaysia</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Category filter
+    const tabs = document.querySelectorAll('.category-tab');
+    const cards = document.querySelectorAll('#posts-grid .card');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const cat = tab.dataset.cat;
+        cards.forEach(card => {
+          card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+        });
+      });
+    });
+
+    // Handle URL param ?cat=
+    const params = new URLSearchParams(window.location.search);
+    const catParam = params.get('cat');
+    if (catParam) {
+      const match = document.querySelector(`.category-tab[data-cat="${catParam}"]`);
+      if (match) match.click();
+    }
+  </script>
+</body>
+</html>
