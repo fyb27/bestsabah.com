@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Living and Working Remotely in KK | Best Sabah</title>
-  <meta name="description" content="What nobody tells you about doing WFH in Kota Kinabalu. The good, the less good, and whether it's worth relocating.">
+  <title>Living and Working Remotely in KK: An Honest One-Year Review | Best Sabah</title>
+  <meta name="description" content="What nobody tells you about doing WFH in Kota Kinabalu.">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/post.css">
 </head>
 <body>
+
+  <!-- READING PROGRESS BAR -->
+  <div class="reading-progress" id="reading-progress"></div>
+
   <header class="site-header">
     <div class="header-inner">
       <a href="../index.html" class="site-logo">Best<span>Sabah</span></a>
@@ -36,68 +40,89 @@
 
   <div class="page-wrap">
     <article class="post">
-      <div class="post-header">
-        <p class="post-date">June 2026</p>
-        <h1 class="post-title">Living and Working Remotely in KK: An Honest One-Year Review</h1>
-        <div class="post-badges">
-          <span class="badge">Lifestyle</span>
-          <span class="badge">9 min read</span>
-        </div>
-        <p class="post-intro">I've been working from home in Kota Kinabalu for over a year. Here's what the digital nomad blogs don't tell you, and what they get right.</p>
+
+      <!-- SHARE SIDEBAR -->
+      <div class="post-share">
+        <span class="post-share__label">Share</span>
+        <div class="post-share__divider"></div>
+        <a class="post-share__btn" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank')" title="Share on X">X</a>
+        <a class="post-share__btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href),'_blank')" title="Share on Facebook">f</a>
+        <a class="post-share__btn" id="copy-link" onclick="navigator.clipboard.writeText(window.location.href);this.textContent='&#10003;';setTimeout(()=>this.textContent='&#128279;',2000)" title="Copy link">&#128279;</a>
       </div>
 
-      <div class="post-body">
-<p>Every few months a new article appears somewhere ranking KK as one of Southeast Asia's best cities for remote workers. The articles are usually written by someone who spent two weeks here, found a nice cafe with good wifi, and left before the novelty wore off.</p>
-
-        <p>I've lived here my whole life and worked remotely for the past year and a half. Here's a more honest version.</p>
-<div class="post-img post-img--hero">
-          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80" alt="Kota Kinabalu city at dusk">
-          <p class="post-img-caption">KK from Signal Hill. The view you get to see whenever you want when you live here.</p>
+      <!-- MAIN CONTENT -->
+      <div class="post-main">
+        <div class="post-header">
+          <p class="post-date">June 2026</p>
+          <h1 class="post-title">Living and Working Remotely in KK: An Honest One-Year Review</h1>
+          <div class="post-badges">
+            <span class="badge">Lifestyle</span>
+            <span class="badge">9 min read</span>
+          </div>
+          <p class="post-intro">I've been working from home in Kota Kinabalu for over a year. Here's what the digital nomad blogs don't tell you, and what they get right.</p>
         </div>
+        <div class="post-body">
+          <div class="post-img post-img--hero">
+            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80" alt="Kota Kinabalu city at dusk">
+            <p class="post-img-caption">KK from Signal Hill. The view you get whenever you want when you live here.</p>
+          </div>
 
-        <h2>The Good Stuff (It's Real)</h2>
+          <p>Every few months a new article appears somewhere ranking KK as one of Southeast Asia's best cities for remote workers. The articles are usually written by someone who spent two weeks here, found a nice cafe with good wifi, and left before the novelty wore off.</p>
 
-        <p>Cost of living is genuinely low. A comfortable one-bedroom apartment in a decent area runs between RM800 and RM1,500 a month. Food, even eating out daily, is unlikely to cost you more than RM600-800 a month unless you're eating at hotel restaurants every night. For someone earning in USD or euros, this city is very affordable.</p>
+          <p>I've lived here my whole life and worked remotely for the past year and a half. Here's a more honest version.</p>
 
-        <div class="post-img post-img--small">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Cafe workspace with laptop">
-          <p class="post-img-caption">Several cafes in KK are implicitly remote-worker friendly. Power points, good wifi, no rush.</p>
+          <h2>The Good Stuff (It's Real)</h2>
+
+          <p>Cost of living is genuinely low. A comfortable one-bedroom apartment in a decent area runs between RM800 and RM1,500 a month. Food, even eating out daily, is unlikely to cost more than RM600-800 a month. For someone earning in USD or euros, this city is very affordable.</p>
+
+          <div class="post-img post-img--small">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=75" alt="Cafe workspace">
+            <p class="post-img-caption">Several cafes in KK are implicitly remote-worker friendly.</p>
+          </div>
+
+          <p>The internet has improved significantly. Fibre is widely available. Unifi and TIME are the two most reliable providers. Getting 100-500Mbps is straightforward. The days of terrible Malaysian internet are mostly over, at least in KK.</p>
+
+          <p>The quality of life outside work is high. On an island in 20 minutes. At a waterfall in 45 minutes. Food is good, cheap, and available at all hours.</p>
+
+          <h2>The Less Good Stuff (Also Real)</h2>
+
+          <p>There is no tech or startup ecosystem here. If you need to be around other people doing similar work, or attending industry events, KK will frustrate you. The professional community is small and largely offline.</p>
+
+          <p>Public transport is essentially non-existent for practical daily use. You need a car or Grab everywhere. Grab works fine in the city but coverage drops off quickly outside the main areas.</p>
+
+          <div class="post-img">
+            <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1000&q=80" alt="KK islands">
+            <p class="post-img-caption">On the island in 20 minutes. This is the upside the digital nomad blogs get right.</p>
+          </div>
+
+          <p>The heat is real. KK is hot every single day. Air-conditioning is not optional. Getting in and out requires a flight. A flight to KL takes 2.5 hours and costs RM150-400 depending on when you book.</p>
+
+          <h2>Coworking Spaces</h2>
+
+          <p>There are a handful in the city. Quality varies. The genuine coworking experience, community events and collaboration, is limited. Most remote workers end up working from home, cafes, or a combination of both. The cafe option is actually good.</p>
+
+          <h2>Who KK WFH Works For</h2>
+
+          <p>It works really well if you're already here, already have your social network, and just want to work remotely rather than go into an office. That's my situation and it's good.</p>
+
+          <p>It works reasonably well for solo remote workers who value low costs, nature access, and a quiet life over professional networking.</p>
+
+          <p>It works less well if you're a nomad who needs community and a constant stream of new people. Bali and Chiang Mai serve that need better.</p>
+
+          <h2>The Honest Bottom Line</h2>
+
+          <p>KK is a genuinely good city to live in. It's not a great nomad hub. Those are different things. If you just want somewhere affordable, beautiful, and low-stress to do your work and live your life, KK delivers on that consistently.
         </div>
-
-        <p>The internet situation has improved significantly. Fibre is widely available in most parts of the city now. Unifi and TIME are the two most reliable providers. Getting speeds of 100-500Mbps is straightforward. The days of terrible Malaysian internet are mostly over, at least in KK.</p>
-
-        <p>The quality of life outside work is high. You can be on an island in 20 minutes. You can drive to a waterfall in 45 minutes. The food is good, cheap, and available at all hours. The pace is slower than KL in a way that most people find either relaxing or boring depending on their personality.</p>
-
-        <h2>The Less Good Stuff (Also Real)</h2>
-
-        <p>There is no tech or startup ecosystem here. If you need to be around other people doing similar work, doing spontaneous coffee meetings with potential collaborators, or attending industry events, KK will frustrate you. The professional community here is small and largely offline.</p>
-
-        <p>Public transport is essentially non-existent for practical daily use. You need a car or you need to Grab everywhere. Grab works fine in the city but coverage drops off quickly outside the main areas.</p>
-
-        <div class="post-img">
-          <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1000&q=80" alt="KK islands from above">
-          <p class="post-img-caption">On the island in 20 minutes. This is the upside that the digital nomad blogs get right.</p>
-        </div>
-
-        <p>The heat is real. KK is hot every single day. If you're from a temperate climate you'll adjust, but you'll be adjusting for longer than you think. Air-conditioning is not optional.</p>
-
-        <p>Getting in and out requires a flight. There's no train to KL, no bus that makes practical sense. A flight to KL takes 2.5 hours and costs RM150-400 depending on when you book. For most people this is fine. But if you need to be mobile frequently, factor in the time and cost.</p>
-
-        <h2>Who KK WFH Works For</h2>
-
-        <p>It works really well if you're already here, already have your social network established, and just want to work remotely rather than go into an office. That's my situation and it's good.</p>
-
-        <p>It works reasonably well if you're a solo remote worker who values low costs, nature access, and a quiet life over professional networking and urban energy.</p>
-
-        <p>It works less well if you're a digital nomad who needs community, spontaneity, and a constant stream of new people. Bali and Chiang Mai serve that need better.</p>
-
-        <h2>The Honest Bottom Line</h2>
-
-        <p>KK is a genuinely good city to live in. It's not a great nomad hub. Those are different things. If the distinction matters to you, think carefully before committing to a long stay.</p>
-
-        <p>If it doesn't matter to you, and you just want somewhere affordable, beautiful, and low-stress to do your work and live your life, KK delivers on that consistently.</p>
-
       </div>
+
+      <!-- TABLE OF CONTENTS -->
+      <aside class="post-sidebar">
+        <div class="post-toc">
+          <span class="post-toc__label">Contents</span>
+          <ul class="post-toc__list" id="toc-list"></ul>
+        </div>
+      </aside>
+
     </article>
 
     <section class="post-related">
@@ -110,7 +135,7 @@
           </a>
           <a href="supper-spots-kk.html" class="card">
             <div class="card__img"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=75" alt="Food" loading="lazy"></div>
-            <div class="card__body"><span class="card__cat">Food &amp; Drinks</span><div class="card__title">The Best Supper Spots in KK</div><p class="card__excerpt">Where locals actually go after 10pm.</p></div>
+            <div class="card__body"><span class="card__cat">Food &amp; Drinks</span><div class="card__title">Best Supper Spots in KK</div><p class="card__excerpt">Where locals actually go after 10pm.</p></div>
           </a>
           <a href="kundasang-morning.html" class="card">
             <div class="card__img"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=75" alt="Kundasang" loading="lazy"></div>
@@ -130,6 +155,6 @@
     </ul>
     <p class="footer-copy">&#169; 2026 BestSabah.com, Kota Kinabalu, Malaysia</p>
   </footer>
-  <script src="../js/main.js"></script>
+  <script src="../js/post.js"></script>
 </body>
 </html>
