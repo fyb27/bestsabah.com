@@ -1,17 +1,90 @@
 /* ============================================
-   POST PAGE STYLES
+   POST PAGE — EDITORIAL LAYOUT
    ============================================ */
 
-.post {
-  max-width: 740px;
-  margin: 0 auto;
-  padding: 80px 24px 0;
+/* Reading progress bar */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--green);
+  z-index: 999;
+  transition: width 0.1s linear;
 }
 
-/* Header */
+.post {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 80px 24px 0;
+  display: grid;
+  grid-template-columns: 48px 1fr 260px;
+  gap: 0 52px;
+  align-items: start;
+}
+
+/* ============================================
+   SHARE SIDEBAR (left column)
+   ============================================ */
+
+.post-share {
+  position: sticky;
+  top: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.post-share__label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  margin-bottom: 4px;
+}
+
+.post-share__btn {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  transition: border-color 0.2s, color 0.2s;
+  cursor: pointer;
+  background: none;
+  font-size: 13px;
+  text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.post-share__btn:hover {
+  border-color: var(--dark);
+  color: var(--dark);
+}
+
+.post-share__divider {
+  width: 1px;
+  height: 32px;
+  background: var(--border);
+}
+
+/* ============================================
+   MAIN CONTENT (center column)
+   ============================================ */
+
+.post-main {
+  min-width: 0;
+}
+
 .post-header {
-  text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
 
 .post-date {
@@ -20,28 +93,29 @@
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  display: block;
 }
 
 .post-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(30px, 4.5vw, 48px);
+  font-size: clamp(28px, 3.8vw, 46px);
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.12;
   color: var(--text);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   letter-spacing: -0.5px;
 }
 
 .post-badges {
   display: flex;
   gap: 8px;
-  justify-content: center;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
 }
 
 .badge {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -52,16 +126,16 @@
 }
 
 .post-intro {
-  font-size: 18px;
+  font-size: 17px;
   color: var(--muted);
-  line-height: 1.7;
-  max-width: 600px;
-  margin: 0 auto;
+  line-height: 1.75;
+  border-left: 3px solid var(--green);
+  padding-left: 20px;
 }
 
 /* Body */
 .post-body {
-  padding: 48px 0 80px;
+  padding: 44px 0 80px;
 }
 
 .post-body p {
@@ -73,19 +147,13 @@
 
 .post-body h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--text);
-  margin: 52px 0 20px;
+  margin: 52px 0 18px;
   padding-top: 8px;
   border-top: 1px solid var(--border);
-}
-
-.post-body h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  font-weight: 700;
-  margin: 36px 0 14px;
+  scroll-margin-top: 80px;
 }
 
 .post-body strong { font-weight: 600; }
@@ -104,10 +172,10 @@
 
 .post-body blockquote {
   border-left: 3px solid var(--green);
-  padding: 4px 0 4px 28px;
+  padding: 4px 0 4px 24px;
   margin: 40px 0;
   font-family: 'Playfair Display', serif;
-  font-size: 22px;
+  font-size: 21px;
   font-style: italic;
   color: var(--muted);
   line-height: 1.6;
@@ -118,33 +186,37 @@
    ============================================ */
 
 .post-img {
-  margin: 40px 0;
+  margin: 36px 0;
+  clear: both;
 }
 
-/* Hero image — contained, after intro text */
+/* Hero image — breaks out to the right */
 .post-img--hero {
-  margin-top: 0;
-  margin-bottom: 48px;
+  margin-right: -100px;
+  margin-bottom: 44px;
+  clear: none;
 }
 
 .post-img--hero img {
   width: 100%;
-  aspect-ratio: 16/10;
+  aspect-ratio: 16/9;
   object-fit: cover;
 }
 
-/* Regular inline image — full column width */
+/* Regular inline image */
 .post-img img {
   width: 100%;
-  aspect-ratio: 16/10;
+  aspect-ratio: 16/9;
   object-fit: cover;
   display: block;
 }
 
-/* Small image — sits within text, not full width */
+/* Small floated image */
 .post-img--small {
-  max-width: 480px;
-  margin: 40px auto;
+  float: right;
+  width: 44%;
+  margin: 4px 0 24px 32px;
+  clear: right;
 }
 
 .post-img--small img {
@@ -154,13 +226,74 @@
 .post-img-caption {
   font-size: 12px;
   color: var(--muted);
-  margin-top: 10px;
+  margin-top: 8px;
   line-height: 1.5;
   font-style: italic;
 }
 
 /* ============================================
-   RELATED STORIES
+   RIGHT SIDEBAR — TOC
+   ============================================ */
+
+.post-sidebar {
+  position: sticky;
+  top: 88px;
+  padding-top: 8px;
+}
+
+.post-toc {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 24px;
+}
+
+.post-toc__label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-toc__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-toc__list li {
+  margin-bottom: 2px;
+}
+
+.post-toc__list a {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  padding: 6px 10px;
+  display: block;
+  border-left: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  text-decoration: none;
+}
+
+.post-toc__list a:hover {
+  color: var(--text);
+  background: var(--bg);
+}
+
+.post-toc__list a.is-active {
+  color: var(--green);
+  border-left-color: var(--green);
+  font-weight: 500;
+  background: var(--bg);
+}
+
+/* ============================================
+   RELATED SECTION (below post)
    ============================================ */
 
 .post-related {
@@ -187,10 +320,32 @@
    RESPONSIVE
    ============================================ */
 
-@media (max-width: 640px) {
-  .post { padding: 48px 16px 0; }
+@media (max-width: 1020px) {
+  .post {
+    grid-template-columns: 48px 1fr;
+    max-width: 800px;
+  }
+  .post-sidebar { display: none; }
+  .post-img--hero { margin-right: -48px; }
+}
+
+@media (max-width: 720px) {
+  .post {
+    grid-template-columns: 1fr;
+    padding: 48px 16px 0;
+  }
+  .post-share {
+    flex-direction: row;
+    position: static;
+    padding: 0 0 24px;
+    gap: 10px;
+  }
+  .post-share__label {
+    writing-mode: horizontal-tb;
+    transform: none;
+  }
+  .post-share__divider { width: 32px; height: 1px; }
+  .post-img--hero { margin-right: 0; }
+  .post-img--small { float: none; width: 100%; margin: 28px 0; }
   .post-body p, .post-body li { font-size: 16px; }
-  .post-body h2 { font-size: 22px; }
-  .post-img--hero img { aspect-ratio: 16/9; }
-  .post-img--small { max-width: 100%; }
 }
