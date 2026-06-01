@@ -1,5 +1,5 @@
 /* ============================================
-   POST PAGE — EDITORIAL LAYOUT
+   POST PAGE
    ============================================ */
 
 .reading-progress {
@@ -12,24 +12,20 @@
   transition: width 0.1s linear;
 }
 
-/* Outer: share column + article */
+/* Outermost wrapper: share col + content+toc */
 .post {
-  max-width: 820px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 80px 24px 0;
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 0 40px;
-  align-items: start;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
 }
 
-.post-main { min-width: 0; }
-
-/* ============================================
-   SHARE SIDEBAR
-   ============================================ */
-
+/* Share column */
 .post-share {
+  flex-shrink: 0;
+  width: 48px;
   position: sticky;
   top: 96px;
   display: flex;
@@ -67,28 +63,9 @@
 }
 
 .post-share__btn:hover { transform: scale(1.12); opacity: 0.85; }
-
-/* X — black */
-.post-share__btn--x {
-  background: #000;
-  color: #fff;
-  font-size: 11px;
-  letter-spacing: -0.5px;
-}
-
-/* Facebook — blue */
-.post-share__btn--fb {
-  background: #1877F2;
-  color: #fff;
-  font-size: 15px;
-}
-
-/* Copy link — green */
-.post-share__btn--copy {
-  background: var(--green);
-  color: #fff;
-  font-size: 14px;
-}
+.post-share__btn--x   { background: #000; color: #fff; font-size: 11px; }
+.post-share__btn--fb  { background: #1877F2; color: #fff; font-size: 15px; }
+.post-share__btn--copy { background: var(--green); color: #fff; font-size: 14px; }
 
 .post-share__divider {
   width: 1px;
@@ -96,8 +73,23 @@
   background: var(--border);
 }
 
+/* Center: post-main (article) */
+.post-main {
+  flex: 1;
+  min-width: 0;
+}
+
+/* RIGHT: TOC sidebar — sticky beside the article */
+.post-sidebar {
+  flex-shrink: 0;
+  width: 200px;
+  position: sticky;
+  top: 96px;
+  /* align-self: flex-start is implicit with align-items: flex-start on parent */
+}
+
 /* ============================================
-   POST HEADER
+   POST HEADER + BODY
    ============================================ */
 
 .post-header { margin-bottom: 40px; }
@@ -148,10 +140,6 @@
   padding-left: 20px;
 }
 
-/* ============================================
-   POST BODY
-   ============================================ */
-
 .post-body { padding: 0 0 80px; }
 
 .post-body p {
@@ -193,11 +181,10 @@
   font-size: 21px;
   font-style: italic;
   color: var(--muted);
-  line-height: 1.6;
 }
 
 /* ============================================
-   IN-POST IMAGES
+   IMAGES
    ============================================ */
 
 .post-img { margin: 36px 0; clear: both; }
@@ -239,25 +226,8 @@
 }
 
 /* ============================================
-   TOC — fixed beside article on wide screens
+   TOC
    ============================================ */
-
-.post-sidebar { display: none; }
-
-.post-toc-fixed {
-  display: none;
-  position: fixed;
-  /* sits just to the right of the article column */
-  /* article: max 820px centered, content col ~720px after share col */
-  top: 160px;
-  left: calc(50% + 420px);
-  width: 200px;
-  z-index: 40;
-}
-
-@media (min-width: 1280px) {
-  .post-toc-fixed { display: block; }
-}
 
 .post-toc {
   background: var(--bg2);
@@ -291,11 +261,7 @@
   text-decoration: none;
 }
 
-.post-toc__list a:hover {
-  color: var(--text);
-  background: var(--bg);
-}
-
+.post-toc__list a:hover { color: var(--text); background: var(--bg); }
 .post-toc__list a.is-active {
   color: var(--green);
   border-left-color: var(--green);
@@ -303,16 +269,17 @@
   background: var(--bg);
 }
 
+/* not used anymore */
+.post-toc-fixed { display: none; }
+
 /* ============================================
    BACK TO TOP
    ============================================ */
 
 #back-to-top {
   position: fixed;
-  bottom: 32px;
-  right: 32px;
-  width: 44px;
-  height: 44px;
+  bottom: 32px; right: 32px;
+  width: 44px; height: 44px;
   background: var(--dark);
   color: var(--white);
   border: none;
@@ -340,10 +307,7 @@
   border-top: 1px solid var(--border);
 }
 
-.post-related-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-}
+.post-related-inner { max-width: var(--max); margin: 0 auto; }
 
 .post-related-title {
   font-family: 'Playfair Display', serif;
@@ -358,20 +322,22 @@
    RESPONSIVE
    ============================================ */
 
+@media (max-width: 960px) {
+  .post-sidebar { display: none; }
+  .post-img--hero { margin-right: 0; }
+}
+
 @media (max-width: 720px) {
-  .post {
-    grid-template-columns: 1fr;
-    padding: 48px 16px 0;
-  }
+  .post { flex-direction: column; padding: 48px 16px 0; gap: 0; }
   .post-share {
     flex-direction: row;
     position: static;
+    width: auto;
     padding: 0 0 24px;
     gap: 10px;
   }
   .post-share__label { writing-mode: horizontal-tb; transform: none; }
   .post-share__divider { width: 32px; height: 1px; }
-  .post-img--hero { margin-right: 0; }
   .post-img--small { float: none; width: 100%; margin: 28px 0; }
   .post-body p, .post-body li { font-size: 16px; }
 }
