@@ -35,11 +35,8 @@ a { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; }
 
 /* Footer always flush to bottom */
-html, body { height: 100%; }
 body { display: flex; flex-direction: column; min-height: 100vh; }
-.site-header { flex: none; }
-.page-wrap, .hero + *, main { flex: 1; }
-.site-footer { flex: none; margin-top: auto; }
+.page-wrap { flex: 1; }
 
 /* ============================================
    HEADER
