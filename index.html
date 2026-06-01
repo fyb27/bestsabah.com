@@ -10,230 +10,280 @@
 
     /* ── MASTHEAD ── */
     .hp-masthead {
-      padding: 64px 24px 48px;
+      padding: 72px 80px 56px;
       border-bottom: 1px solid var(--border);
     }
 
-    .hp-masthead-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-    }
-
-    .hp-publication-name {
+    .hp-pub-name {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(56px, 9vw, 120px);
+      font-size: clamp(72px, 11vw, 140px);
       font-weight: 700;
-      line-height: 0.95;
-      letter-spacing: -3px;
+      line-height: 0.92;
+      letter-spacing: -4px;
       color: var(--text);
-      margin-bottom: 28px;
+      margin-bottom: 32px;
     }
 
-    .hp-publication-name span { color: var(--green); }
+    .hp-pub-name span { color: var(--green); }
 
-    .hp-masthead-rule {
+    .hp-masthead-meta {
       display: flex;
       align-items: center;
-      gap: 24px;
-      margin-bottom: 20px;
+      gap: 0;
     }
 
-    .hp-masthead-rule::before,
-    .hp-masthead-rule::after {
+    .hp-masthead-meta::before {
       content: '';
       flex: 1;
       height: 1px;
       background: var(--border);
+      margin-right: 32px;
     }
 
     .hp-masthead-tagline {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 3px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3.5px;
       text-transform: uppercase;
       color: var(--muted);
       white-space: nowrap;
+      margin-right: 32px;
     }
 
-    .hp-masthead-desc {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.7;
-      max-width: 520px;
+    .hp-masthead-meta::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      margin-left: 0;
     }
 
-    /* ── FEATURED ── */
+    /* ── FEATURED — full width asymmetric ── */
     .hp-featured {
-      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 60% 40%;
+      min-height: 560px;
       border-bottom: 1px solid var(--border);
     }
 
-    .hp-featured-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 0;
-      min-height: 480px;
-    }
-
-    .hp-featured-image {
+    .hp-featured__img {
       overflow: hidden;
     }
 
-    .hp-featured-image img {
+    .hp-featured__img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
-      transition: transform 0.6s ease;
+      transition: transform 0.7s ease;
     }
 
-    .hp-featured-inner:hover .hp-featured-image img {
+    .hp-featured:hover .hp-featured__img img {
       transform: scale(1.03);
     }
 
-    .hp-featured-text {
-      padding: 56px 0 56px 64px;
+    .hp-featured__text {
+      padding: 72px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      border-left: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    .hp-featured__label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .hp-featured__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 2.8vw, 40px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 20px;
+      text-decoration: none;
+      display: block;
+      transition: color 0.2s;
+    }
+
+    .hp-featured__title:hover { color: var(--green); }
+
+    .hp-featured__excerpt {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+
+    .hp-featured__read {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: color 0.2s, gap 0.2s;
+    }
+
+    .hp-featured__read::after {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: currentColor;
+      transition: width 0.2s;
+    }
+
+    .hp-featured__read:hover {
+      color: var(--green);
+      gap: 14px;
+    }
+
+    .hp-featured__read:hover::after { width: 48px; }
+
+    /* ── STORY GRID ── */
+    .hp-stories {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hp-stories__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 32px 80px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hp-stories__label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hp-stories__all {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .hp-stories__all:hover { color: var(--text); }
+
+    /* Full-width story row */
+    .story-full {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 380px;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+    }
+
+    .story-full:hover .story-full__title { color: var(--green); }
+    .story-full:hover .story-full__img img { transform: scale(1.04); }
+
+    .story-full__img {
+      overflow: hidden;
+    }
+
+    .story-full__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .story-full__body {
+      padding: 56px 80px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       border-left: 1px solid var(--border);
     }
 
-    .hp-featured-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 20px;
-      display: block;
-    }
+    .story-full--reverse .story-full__img { order: 2; border-left: 1px solid var(--border); }
+    .story-full--reverse .story-full__body { order: 1; border-left: none; }
 
-    .hp-featured-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 3vw, 42px);
-      font-weight: 700;
-      line-height: 1.15;
-      color: var(--text);
-      margin-bottom: 20px;
-      transition: color 0.2s;
-      display: block;
-      text-decoration: none;
-    }
-
-    .hp-featured-title:hover { color: var(--green); }
-
-    .hp-featured-excerpt {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.75;
-      margin-bottom: 36px;
-    }
-
-    .hp-featured-read {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--text);
-      text-decoration: none;
-      border-bottom: 1.5px solid var(--text);
-      padding-bottom: 2px;
-      display: inline-block;
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    .hp-featured-read:hover {
-      color: var(--green);
-      border-color: var(--green);
-    }
-
-    /* ── LATEST STORIES ── */
-    .hp-latest {
-      padding: 0 24px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .hp-latest-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-    }
-
-    .hp-section-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 40px 0 0;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 0;
-    }
-
-    .hp-section-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .hp-section-link {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .hp-section-link:hover { color: var(--text); }
-
-    /* Story rows */
-    .story-row {
-      display: grid;
-      grid-template-columns: 240px 1fr;
-      gap: 0;
-      border-bottom: 1px solid var(--border);
-      text-decoration: none;
-    }
-
-    .story-row:hover .story-row__title { color: var(--green); }
-
-    .story-row__img {
-      overflow: hidden;
-    }
-
-    .story-row__img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    .story-row:hover .story-row__img img { transform: scale(1.04); }
-
-    .story-row__body {
-      padding: 32px 0 32px 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .story-row__cat {
+    .story__cat {
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 2.5px;
       text-transform: uppercase;
       color: var(--green);
+      margin-bottom: 16px;
       display: block;
-      margin-bottom: 12px;
     }
 
-    .story-row__title {
+    .story__title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(20px, 2.2vw, 28px);
+      font-size: clamp(22px, 2.5vw, 34px);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 16px;
+      transition: color 0.2s;
+    }
+
+    .story__excerpt {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .story__meta {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+    }
+
+    /* Two-col small stories */
+    .stories-duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .story-card {
+      text-decoration: none;
+      border-right: 1px solid var(--border);
+    }
+
+    .story-card:last-child { border-right: none; }
+    .story-card:hover .story-card__title { color: var(--green); }
+    .story-card:hover .story-card__img img { transform: scale(1.04); }
+
+    .story-card__img {
+      overflow: hidden;
+      aspect-ratio: 16/10;
+    }
+
+    .story-card__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .story-card__body {
+      padding: 36px 48px 48px;
+    }
+
+    .story-card__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 1.8vw, 26px);
       font-weight: 700;
       color: var(--text);
       line-height: 1.25;
@@ -241,96 +291,110 @@
       transition: color 0.2s;
     }
 
-    .story-row__excerpt {
-      font-size: 14px;
+    .story-card__excerpt {
+      font-size: 13px;
       color: var(--muted);
       line-height: 1.7;
-    }
-
-    .story-row__meta {
-      font-size: 11px;
-      color: var(--muted);
-      margin-top: 16px;
-      letter-spacing: 0.5px;
+      margin-bottom: 16px;
     }
 
     /* ── ABOUT ── */
     .hp-about {
-      padding: 80px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 320px;
       border-bottom: 1px solid var(--border);
     }
 
-    .hp-about-inner {
-      max-width: 640px;
-      margin: 0 auto;
-      text-align: center;
+    .hp-about__left {
+      padding: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid var(--border);
     }
 
-    .hp-about-label {
+    .hp-about__label {
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--muted);
+      margin-bottom: 28px;
       display: block;
-      margin-bottom: 28px;
     }
 
-    .hp-about-quote {
+    .hp-about__quote {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(26px, 3.5vw, 40px);
-      font-weight: 400;
-      font-style: italic;
-      line-height: 1.4;
+      font-size: clamp(24px, 2.8vw, 36px);
+      font-weight: 700;
+      line-height: 1.3;
       color: var(--text);
-      margin-bottom: 28px;
-    }
-
-    .hp-about-sub {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.8;
       margin-bottom: 32px;
     }
 
-    .hp-about-link {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2px;
+    .hp-about__link {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
       text-transform: uppercase;
       color: var(--text);
       text-decoration: none;
-      border-bottom: 1.5px solid var(--border);
-      padding-bottom: 2px;
-      transition: border-color 0.2s, color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: color 0.2s, gap 0.2s;
     }
 
-    .hp-about-link:hover {
-      color: var(--green);
-      border-color: var(--green);
+    .hp-about__link::after {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: currentColor;
+      transition: width 0.2s;
+    }
+
+    .hp-about__link:hover { color: var(--green); gap: 14px; }
+    .hp-about__link:hover::after { width: 48px; }
+
+    .hp-about__right {
+      overflow: hidden;
+    }
+
+    .hp-about__right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(20%);
     }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 860px) {
-      .hp-featured-inner {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-      .hp-featured-image { aspect-ratio: 16/9; }
-      .hp-featured-text {
-        padding: 40px 0;
-        border-left: none;
-        border-top: 1px solid var(--border);
-      }
-      .story-row { grid-template-columns: 140px 1fr; }
-      .story-row__body { padding: 24px 0 24px 24px; }
+    @media (max-width: 960px) {
+      .hp-masthead { padding: 48px 32px 40px; }
+      .hp-featured { grid-template-columns: 1fr; min-height: auto; }
+      .hp-featured__img { aspect-ratio: 16/9; }
+      .hp-featured__text { border-left: none; border-top: 1px solid var(--border); padding: 40px 32px; }
+      .hp-stories__header { padding: 24px 32px; }
+      .story-full { grid-template-columns: 1fr; min-height: auto; }
+      .story-full__img { aspect-ratio: 16/9; }
+      .story-full__body { padding: 36px 32px; border-left: none; border-top: 1px solid var(--border); }
+      .story-full--reverse .story-full__img { order: 1; border-left: none; border-top: 1px solid var(--border); }
+      .story-full--reverse .story-full__body { order: 2; }
+      .stories-duo { grid-template-columns: 1fr; }
+      .story-card { border-right: none; border-bottom: 1px solid var(--border); }
+      .story-card__body { padding: 28px 32px 36px; }
+      .hp-about { grid-template-columns: 1fr; }
+      .hp-about__left { padding: 56px 32px; border-right: none; border-bottom: 1px solid var(--border); }
+      .hp-about__right { aspect-ratio: 16/8; }
     }
 
-    @media (max-width: 560px) {
-      .story-row { grid-template-columns: 1fr; }
-      .story-row__img { aspect-ratio: 16/9; height: auto; }
-      .story-row__body { padding: 20px 0; }
-      .hp-publication-name { letter-spacing: -1px; }
+    @media (max-width: 600px) {
+      .hp-masthead { padding: 40px 20px 32px; }
+      .hp-pub-name { letter-spacing: -2px; }
+      .hp-featured__text { padding: 32px 20px; }
+      .story-full__body { padding: 28px 20px; }
+      .story-card__body { padding: 24px 20px 32px; }
+      .hp-stories__header { padding: 20px; }
     }
 
   </style>
@@ -369,100 +433,101 @@
 
     <!-- MASTHEAD -->
     <div class="hp-masthead">
-      <div class="hp-masthead-inner">
-        <h1 class="hp-publication-name">Best<span>Sabah</span></h1>
-        <div class="hp-masthead-rule">
-          <span class="hp-masthead-tagline">A Local Guide to Kota Kinabalu &amp; Sabah</span>
-        </div>
-        <p class="hp-masthead-desc">Written by a Sabahan who has spent his life exploring KK. Food, coffee, parks, hidden corners, and honest recommendations. No tourist brochure nonsense.</p>
+      <h1 class="hp-pub-name">Best<span>Sabah</span></h1>
+      <div class="hp-masthead-meta">
+        <span class="hp-masthead-tagline">A Local Guide to Kota Kinabalu &amp; Sabah, Malaysia</span>
       </div>
     </div>
 
     <!-- FEATURED STORY -->
-    <div class="hp-featured">
-      <div class="hp-featured-inner">
-        <div class="hp-featured-image">
-          <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1200&q=80" alt="Tunku Abdul Rahman Park, Kota Kinabalu">
-        </div>
-        <div class="hp-featured-text">
-          <span class="hp-featured-label">Featured Story</span>
-          <a href="posts/island-hopping-kk.html" class="hp-featured-title">Island Hopping from KK: The Honest Guide to Tunku Abdul Rahman Park</a>
-          <p class="hp-featured-excerpt">Five islands. One park. Which ones are worth it, which are overrated, and when to go to beat the crowds.</p>
-          <a href="posts/island-hopping-kk.html" class="hp-featured-read">Read the guide &#8594;</a>
-        </div>
+    <a href="posts/island-hopping-kk.html" class="hp-featured">
+      <div class="hp-featured__img">
+        <!-- Tanjung Aru Beach, actual KK photo -->
+        <img src="https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=1400&q=85" alt="Tanjung Aru Beach, Kota Kinabalu">
       </div>
-    </div>
-
-    <!-- LATEST STORIES -->
-    <div class="hp-latest">
-      <div class="hp-latest-inner">
-        <div class="hp-section-header">
-          <span class="hp-section-label">Latest Stories</span>
-          <a href="blog.html" class="hp-section-link">All stories &#8594;</a>
-        </div>
-
-        <a href="posts/kundasang-morning.html" class="story-row">
-          <div class="story-row__img">
-            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=75" alt="Kundasang" loading="lazy">
-          </div>
-          <div class="story-row__body">
-            <span class="story-row__cat">Hidden Gems</span>
-            <div class="story-row__title">Kundasang in the Morning: Sabah's Highland Secret Two Hours from KK</div>
-            <p class="story-row__excerpt">Cool air, vegetable farms, and one of the best views in all of Borneo. Only two hours from KK.</p>
-            <p class="story-row__meta">June 2026 &nbsp;·&nbsp; 6 min read</p>
-          </div>
-        </a>
-
-        <a href="posts/kopi-shops-kk.html" class="story-row">
-          <div class="story-row__img">
-            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=75" alt="Kopi" loading="lazy">
-          </div>
-          <div class="story-row__body">
-            <span class="story-row__cat">Cafes</span>
-            <div class="story-row__title">KK's Best Kopi Shops: Old Corners, Strong Brews, and Good Mornings</div>
-            <p class="story-row__excerpt">The traditional kopi culture in Kota Kinabalu is alive, unhurried, and quietly wonderful.</p>
-            <p class="story-row__meta">June 2026 &nbsp;·&nbsp; 5 min read</p>
-          </div>
-        </a>
-
-        <a href="posts/supper-spots-kk.html" class="story-row">
-          <div class="story-row__img">
-            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=75" alt="Food" loading="lazy">
-          </div>
-          <div class="story-row__body">
-            <span class="story-row__cat">Food &amp; Drinks</span>
-            <div class="story-row__title">The Best Supper Spots in KK: Where Locals Actually Go After 10pm</div>
-            <p class="story-row__excerpt">KK comes alive late. Here's where to go when the hunger hits after midnight.</p>
-            <p class="story-row__meta">June 2026 &nbsp;·&nbsp; 6 min read</p>
-          </div>
-        </a>
-
-        <a href="posts/wfh-kk.html" class="story-row">
-          <div class="story-row__img">
-            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=75" alt="KK" loading="lazy">
-          </div>
-          <div class="story-row__body">
-            <span class="story-row__cat">Lifestyle</span>
-            <div class="story-row__title">Living and Working Remotely in KK: An Honest One-Year Review</div>
-            <p class="story-row__excerpt">What nobody tells you about doing WFH in Kota Kinabalu.</p>
-            <p class="story-row__meta">June 2026 &nbsp;·&nbsp; 9 min read</p>
-          </div>
-        </a>
-
-        <div style="padding: 32px 0 40px;">
-          <a href="blog.html" class="hp-section-link">View all stories &#8594;</a>
-        </div>
-
+      <div class="hp-featured__text">
+        <span class="hp-featured__label">Featured Story</span>
+        <span class="hp-featured__title">Island Hopping from KK: The Honest Guide to Tunku Abdul Rahman Park</span>
+        <p class="hp-featured__excerpt">Five islands. One park. Which ones are worth it, which are overrated, and when to go to beat the crowds.</p>
+        <span class="hp-featured__read">Read the guide</span>
       </div>
+    </a>
+
+    <!-- STORIES -->
+    <div class="hp-stories">
+      <div class="hp-stories__header">
+        <span class="hp-stories__label">Latest Stories</span>
+        <a href="blog.html" class="hp-stories__all">All stories &#8594;</a>
+      </div>
+
+      <!-- Story 1: image left, text right -->
+      <a href="posts/kundasang-morning.html" class="story-full">
+        <div class="story-full__img">
+          <!-- Mount Kinabalu panorama, Bryan Heng, actual Sabah -->
+          <img src="https://images.unsplash.com/photo-1680674365769-9af04b37e2dd?w=1200&q=85" alt="Mount Kinabalu, Sabah" loading="lazy">
+        </div>
+        <div class="story-full__body">
+          <span class="story__cat">Hidden Gems</span>
+          <div class="story__title">Kundasang in the Morning: Sabah's Highland Secret Two Hours from KK</div>
+          <p class="story__excerpt">Cool air, vegetable farms, and one of the best views in all of Borneo. Most tourists have never heard of it.</p>
+          <p class="story__meta">June 2026 &nbsp;·&nbsp; 6 min read</p>
+        </div>
+      </a>
+
+      <!-- Story 2: text left, image right (reversed) -->
+      <a href="posts/kopi-shops-kk.html" class="story-full story-full--reverse">
+        <div class="story-full__body">
+          <span class="story__cat">Cafes</span>
+          <div class="story__title">KK's Best Kopi Shops: Old Corners, Strong Brews, and Good Mornings</div>
+          <p class="story__excerpt">The traditional kopi culture in Kota Kinabalu is alive, unhurried, and quietly wonderful. Here's where to find it.</p>
+          <p class="story__meta">June 2026 &nbsp;·&nbsp; 5 min read</p>
+        </div>
+        <div class="story-full__img">
+          <!-- Malaysian kopitiam/coffee -->
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=85" alt="Traditional kopi, KK" loading="lazy">
+        </div>
+      </a>
+
+      <!-- Stories 3 + 4: two column -->
+      <div class="stories-duo">
+        <a href="posts/supper-spots-kk.html" class="story-card">
+          <div class="story-card__img">
+            <!-- Malaysian hawker food -->
+            <img src="https://images.unsplash.com/photo-1567608285969-48e4bbe0d399?w=900&q=80" alt="Malaysian hawker food" loading="lazy">
+          </div>
+          <div class="story-card__body">
+            <span class="story__cat">Food &amp; Drinks</span>
+            <div class="story-card__title">The Best Supper Spots in KK: Where Locals Actually Go After 10pm</div>
+            <p class="story-card__excerpt">KK comes alive late. Here's where to go when the hunger hits after midnight.</p>
+            <p class="story__meta">June 2026 &nbsp;·&nbsp; 6 min read</p>
+          </div>
+        </a>
+        <a href="posts/wfh-kk.html" class="story-card">
+          <div class="story-card__img">
+            <!-- KK waterfront / Tanjung Aru sunset -->
+            <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=900&q=80" alt="Kota Kinabalu" loading="lazy">
+          </div>
+          <div class="story-card__body">
+            <span class="story__cat">Lifestyle</span>
+            <div class="story-card__title">Living and Working Remotely in KK: An Honest One-Year Review</div>
+            <p class="story-card__excerpt">What nobody tells you about doing WFH in Kota Kinabalu.</p>
+            <p class="story__meta">June 2026 &nbsp;·&nbsp; 9 min read</p>
+          </div>
+        </a>
+      </div>
+
     </div>
 
     <!-- ABOUT -->
     <div class="hp-about">
-      <div class="hp-about-inner">
-        <span class="hp-about-label">About This Publication</span>
-        <p class="hp-about-quote">"Born in Sabah. Still here. Writing about the places worth your time, from someone who never had a reason to leave."</p>
-        <p class="hp-about-sub">No press trips. No sponsored content. No affiliate pressure. Just places I actually go, food I actually eat, and the honest version of what's worth your time in KK.</p>
-        <a href="about.html" class="hp-about-link">Read more about this blog</a>
+      <div class="hp-about__left">
+        <span class="hp-about__label">About This Publication</span>
+        <p class="hp-about__quote">Born in Sabah. Still here. Writing about the places worth your time, from someone who never had a reason to leave.</p>
+        <a href="about.html" class="hp-about__link">Read more about this blog</a>
+      </div>
+      <div class="hp-about__right">
+        <!-- KK sunset, Tanjung Aru, Jiachen Lin -->
+        <img src="https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?w=1200&q=85" alt="Kota Kinabalu sunset" loading="lazy">
       </div>
     </div>
 
