@@ -1,410 +1,673 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Best Sabah | A Local Guide to KK and Sabah</title>
-<meta name="description" content="Written by a Sabahan who actually lives here. Food, places, and real life in Kota Kinabalu and Sabah.">
-<link rel="stylesheet" href="css/style.css">
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best Sabah | A Local Guide to KK and Sabah</title>
+  <meta name="description" content="Written by a Sabahan who actually lives here. Food, places, and real life in Kota Kinabalu and Sabah.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
-.hp-masthead {
-  border-bottom: 1px solid var(--border);
-  padding: 48px 24px 40px;
-}
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #fff;
+      color: #111;
+      -webkit-font-smoothing: antialiased;
+    }
 
-.hp-masthead-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: end;
-}
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
 
-.hp-masthead-brand {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(48px, 7vw, 88px);
-  font-weight: 700;
-  line-height: 1;
-  color: var(--text);
-  letter-spacing: -2px;
-}
+    /* ── NAV ── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 48px;
+      mix-blend-mode: difference;
+    }
 
-.hp-masthead-brand span { color: var(--green); }
+    .nav__logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #fff;
+    }
 
-.hp-masthead-desc {
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 1.7;
-  max-width: 380px;
-  padding-bottom: 4px;
-}
+    .nav__menu {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
 
-.hp-masthead-desc strong {
-  color: var(--text);
-  font-weight: 500;
-}
+    .nav__menu span {
+      display: block;
+      width: 28px;
+      height: 1.5px;
+      background: #fff;
+    }
 
-.hp-featured {
-  border-bottom: 1px solid var(--border);
-  padding: 0 24px;
-}
+    /* Overlay nav */
+    .nav-overlay {
+      position: fixed;
+      inset: 0;
+      background: #111;
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
 
-.hp-featured-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  min-height: 420px;
-}
+    .nav-overlay.is-open { opacity: 1; pointer-events: all; }
 
-.hp-featured-text {
-  padding: 56px 64px 56px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-right: 1px solid var(--border);
-}
+    .nav-overlay__close {
+      position: absolute;
+      top: 28px; right: 48px;
+      font-size: 24px;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
 
-.hp-featured-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--green);
-  margin-bottom: 20px;
-  display: block;
-}
+    .nav-overlay a {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 52px);
+      color: #fff;
+      letter-spacing: 1px;
+      transition: opacity 0.2s;
+    }
 
-.hp-featured-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 3.5vw, 44px);
-  font-weight: 700;
-  line-height: 1.15;
-  color: var(--text);
-  margin-bottom: 20px;
-  transition: color 0.2s;
-}
+    .nav-overlay a:hover { opacity: 0.5; }
 
-.hp-featured-title:hover { color: var(--green); }
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-.hp-featured-excerpt {
-  font-size: 16px;
-  color: var(--muted);
-  line-height: 1.75;
-  margin-bottom: 32px;
-}
+    .hero__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
 
-.hp-featured-read {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text);
-  border-bottom: 1.5px solid var(--text);
-  padding-bottom: 2px;
-  display: inline-block;
-  transition: color 0.2s, border-color 0.2s;
-}
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 60%);
+    }
 
-.hp-featured-read:hover {
-  color: var(--green);
-  border-color: var(--green);
-}
+    .hero__text {
+      position: absolute;
+      bottom: 64px;
+      left: 64px;
+      color: #fff;
+      max-width: 680px;
+    }
 
-.hp-featured-image { overflow: hidden; }
+    .hero__label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      opacity: 0.8;
+      display: block;
+    }
 
-.hp-featured-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.6s ease;
-}
+    .hero__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 64px);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
 
-.hp-featured-inner:hover .hp-featured-image img { transform: scale(1.03); }
+    .hero__read {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,0.6);
+      padding-bottom: 2px;
+      display: inline-block;
+      transition: border-color 0.2s;
+    }
 
-.hp-latest { padding: 0 24px; }
+    .hero__read:hover { border-color: #fff; }
 
-.hp-latest-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-}
+    /* ── INTRO ── */
+    .intro {
+      padding: 120px 48px;
+      text-align: center;
+      max-width: 880px;
+      margin: 0 auto;
+    }
 
-.hp-latest-header {
-  padding: 40px 0 0;
-  border-bottom: 1px solid var(--border);
-}
+    .intro__label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 28px;
+      display: block;
+    }
 
-.hp-latest-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--muted);
-  display: block;
-  padding-bottom: 12px;
-}
+    .intro__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 400;
+      line-height: 1.25;
+      color: #111;
+    }
 
-.story-row {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 32px;
-  align-items: start;
-  padding: 32px 0;
-  border-bottom: 1px solid var(--border);
-  text-decoration: none;
-}
+    /* ── CATEGORIES ── */
+    .categories {
+      border-top: 1px solid #e8e8e8;
+      padding: 0 48px;
+    }
 
-.story-row:hover .story-row__title { color: var(--green); }
-.story-row:hover .story-row__img img { transform: scale(1.05); }
+    .categories__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 32px 0;
+      border-bottom: 1px solid #e8e8e8;
+    }
 
-.story-row__img {
-  aspect-ratio: 3/2;
-  overflow: hidden;
-}
+    .categories__label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #999;
+    }
 
-.story-row__img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
+    .categories__all {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #111;
+      transition: opacity 0.2s;
+    }
 
-.story-row__cat {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--green);
-  display: block;
-  margin-bottom: 10px;
-}
+    .categories__all:hover { opacity: 0.5; }
 
-.story-row__title {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1.25;
-  margin-bottom: 12px;
-  transition: color 0.2s;
-}
+    .categories__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
 
-.story-row__excerpt {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.7;
-}
+    .cat-item {
+      border-right: 1px solid #e8e8e8;
+      overflow: hidden;
+    }
 
-.story-row__meta {
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 14px;
-}
+    .cat-item:last-child { border-right: none; }
 
-.hp-about {
-  background: var(--dark);
-  color: var(--white);
-  padding: 48px 24px;
-}
+    .cat-item__img {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
 
-.hp-about-inner {
-  max-width: 680px;
-  margin: 0 auto;
-}
+    .cat-item__img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      filter: grayscale(20%);
+    }
 
-.hp-about-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--green2);
-  display: block;
-  margin-bottom: 24px;
-}
+    .cat-item:hover .cat-item__img img { transform: scale(1.04); }
 
-.hp-about-text {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(22px, 3vw, 30px);
-  font-weight: 700;
-  line-height: 1.4;
-  color: rgba(255,255,255,0.9);
-  margin-bottom: 32px;
-}
+    .cat-item__body {
+      padding: 24px 28px 32px;
+    }
 
-.hp-about-sub {
-  font-size: 14px;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.75;
-  margin-bottom: 28px;
-}
+    .cat-item__name {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      transition: opacity 0.2s;
+    }
 
-.hp-about-link {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--white);
-  border-bottom: 1px solid rgba(255,255,255,0.3);
-  padding-bottom: 2px;
-  transition: border-color 0.2s;
-}
+    .cat-item:hover .cat-item__name { opacity: 0.5; }
 
-.hp-about-link:hover { border-color: var(--white); }
+    .cat-item__desc {
+      font-size: 13px;
+      color: #888;
+      line-height: 1.6;
+    }
 
-@media (max-width: 860px) {
-  .hp-masthead-inner { grid-template-columns: 1fr; gap: 20px; }
-  .hp-featured-inner { grid-template-columns: 1fr; min-height: auto; }
-  .hp-featured-text { padding: 40px 0; border-right: none; border-bottom: 1px solid var(--border); }
-  .hp-featured-image { aspect-ratio: 16/9; }
-  .story-row { grid-template-columns: 120px 1fr; gap: 20px; }
-}
+    /* ── ABOUT ── */
+    .about {
+      padding: 120px 48px;
+      border-top: 1px solid #e8e8e8;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
 
-@media (max-width: 560px) {
-  .story-row { grid-template-columns: 1fr; }
-  .story-row__img { aspect-ratio: 16/9; }
-}
+    .about__label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 28px;
+      display: block;
+    }
 
-</style>
+    .about__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 24px;
+    }
+
+    .about__text {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 36px;
+    }
+
+    .about__link {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #111;
+      padding-bottom: 2px;
+      display: inline-block;
+      transition: opacity 0.2s;
+    }
+
+    .about__link:hover { opacity: 0.5; }
+
+    .about__img {
+      aspect-ratio: 4/5;
+      overflow: hidden;
+    }
+
+    .about__img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: grayscale(15%);
+    }
+
+    /* ── STORIES ── */
+    .stories {
+      border-top: 1px solid #e8e8e8;
+      padding: 0 48px;
+    }
+
+    .stories__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 32px 0;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    .stories__label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #999;
+    }
+
+    .stories__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    .story-item {
+      border-right: 1px solid #e8e8e8;
+      padding: 40px 40px 40px 0;
+      text-decoration: none;
+    }
+
+    .story-item:first-child { padding-left: 0; }
+    .story-item:last-child { border-right: none; padding-right: 0; padding-left: 40px; }
+    .story-item:nth-child(2) { padding: 40px; }
+
+    .story-item:hover .story-item__title { opacity: 0.5; }
+    .story-item:hover .story-item__img img { transform: scale(1.04); }
+
+    .story-item__img {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .story-item__img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      filter: grayscale(10%);
+    }
+
+    .story-item__cat {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .story-item__title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 10px;
+      transition: opacity 0.2s;
+    }
+
+    .story-item__excerpt {
+      font-size: 13px;
+      color: #888;
+      line-height: 1.6;
+    }
+
+    /* ── CONTACT ── */
+    .contact {
+      border-top: 1px solid #e8e8e8;
+      padding: 64px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .contact__text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(18px, 2vw, 26px);
+      font-weight: 400;
+    }
+
+    .contact__form {
+      display: flex;
+      gap: 0;
+      border-bottom: 1.5px solid #111;
+      flex: 0 0 480px;
+    }
+
+    .contact__input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: #111;
+      padding: 8px 0;
+      background: transparent;
+    }
+
+    .contact__input::placeholder { color: #aaa; }
+
+    .contact__btn {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px 0 8px 16px;
+      transition: opacity 0.2s;
+    }
+
+    .contact__btn:hover { opacity: 0.5; }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 1px solid #e8e8e8;
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer__logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .footer__links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .footer__links a {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #999;
+      transition: color 0.2s;
+    }
+
+    .footer__links a:hover { color: #111; }
+
+    .footer__copy {
+      font-size: 11px;
+      color: #ccc;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .nav { padding: 24px 24px; }
+      .hero__text { left: 24px; bottom: 40px; }
+      .intro { padding: 80px 24px; }
+      .categories { padding: 0 24px; }
+      .categories__grid { grid-template-columns: repeat(2, 1fr); }
+      .cat-item:nth-child(2) { border-right: none; }
+      .cat-item:nth-child(3) { border-right: 1px solid #e8e8e8; border-top: 1px solid #e8e8e8; }
+      .cat-item:nth-child(4) { border-top: 1px solid #e8e8e8; }
+      .about { grid-template-columns: 1fr; gap: 40px; padding: 80px 24px; }
+      .stories { padding: 0 24px; }
+      .stories__grid { grid-template-columns: 1fr; }
+      .story-item { border-right: none; border-bottom: 1px solid #e8e8e8; padding: 32px 0; }
+      .story-item:last-child { border-bottom: none; }
+      .contact { flex-direction: column; align-items: flex-start; padding: 48px 24px; }
+      .contact__form { flex: none; width: 100%; }
+      .footer { flex-direction: column; gap: 24px; text-align: center; padding: 32px 24px; }
+      .footer__links { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="index.html" class="site-logo">Best<span>Sabah</span></a>
-      <nav>
-        <ul class="site-nav" id="site-nav">
-          <li><a href="index.html">Home</a></li>
-          <li class="nav-item">
-            <a href="blog.html">Blog &#9662;</a>
-            <ul class="nav-dropdown">
-              <li><a href="blog.html?cat=food">Food &amp; Drinks</a></li>
-              <li><a href="blog.html?cat=cafes">Cafes</a></li>
-              <li><a href="blog.html?cat=things-to-do">Things To Do</a></li>
-              <li><a href="blog.html?cat=lifestyle">Lifestyle</a></li>
-              <li><a href="blog.html?cat=hidden-gems">Hidden Gems</a></li>
-              <li><a href="blog.html?cat=travel">Travel &amp; Outdoors</a></li>
-              <li><a href="blog.html?cat=shopping">Shopping</a></li>
-            </ul>
-          </li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
-      </nav>
-    </div>
-  </header>
-
-  <div class="page-wrap">
-
-    <div class="hp-masthead">
-      <div class="hp-masthead-inner">
-        <div class="hp-masthead-brand">Best<span>Sabah</span></div>
-        <p class="hp-masthead-desc">Written by a Sabahan who has spent his life exploring KK — its food, coffee shops, parks, malls, and hidden corners.<br><br><strong>No tourist brochure nonsense. Just honest recommendations.</strong></p>
-      </div>
-    </div>
-
-    <div class="hp-featured">
-      <div class="hp-featured-inner">
-        <div class="hp-featured-text">
-          <span class="hp-featured-label">Featured Story</span>
-          <a href="posts/island-hopping-kk.html" class="hp-featured-title">Island Hopping from KK: The Honest Guide to Tunku Abdul Rahman Park</a>
-          <p class="hp-featured-excerpt">Five islands. One park. Which ones are worth it, which are overrated, and when to go to beat the crowds.</p>
-          <a href="posts/island-hopping-kk.html" class="hp-featured-read">Read the guide</a>
-        </div>
-        <div class="hp-featured-image">
-          <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1200&q=80" alt="Tunku Abdul Rahman Park, Kota Kinabalu">
-        </div>
-      </div>
-    </div>
-
-    <div class="hp-latest">
-      <div class="hp-latest-inner">
-        <div class="hp-latest-header">
-          <span class="hp-latest-label">Latest Stories</span>
-        </div>
-
-        <a href="posts/kundasang-morning.html" class="story-row">
-          <div class="story-row__img">
-            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=75" alt="Kundasang" loading="lazy">
-          </div>
-          <div class="story-row__body">
-            <span class="story-row__cat">Hidden Gems</span>
-            <div class="story-row__title">Kundasang in the Morning: Sabah's Highland Secret Two Hours from KK</div>
-            <p class="story-row__excerpt">Cool air, vegetable farms, and one of the best views in all of Borneo. Only two hours from KK.</p>
-            <p class="story-row__meta">June 2026</p>
-          </div>
-        </a>
-
-        <a href="posts/kopi-shops-kk.html" class="story-row">
-          <div class="story-row__img">
-            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=75" alt="Kopi" loading="lazy">
-          </div>
-          <div class="story-row__body">
-            <span class="story-row__cat">Cafes</span>
-            <div class="story-row__title">KK's Best Kopi Shops: Old Corners, Strong Brews, and Good Mornings</div>
-            <p class="story-row__excerpt">The traditional kopi culture in Kota Kinabalu is alive, unhurried, and quietly wonderful.</p>
-            <p class="story-row__meta">June 2026</p>
-          </div>
-        </a>
-
-        <a href="posts/supper-spots-kk.html" class="story-row">
-          <div class="story-row__img">
-            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=75" alt="Food" loading="lazy">
-          </div>
-          <div class="story-row__body">
-            <span class="story-row__cat">Food &amp; Drinks</span>
-            <div class="story-row__title">The Best Supper Spots in KK: Where Locals Actually Go After 10pm</div>
-            <p class="story-row__excerpt">KK comes alive late. Here's where to go when the hunger hits after midnight.</p>
-            <p class="story-row__meta">June 2026</p>
-          </div>
-        </a>
-
-        <a href="posts/wfh-kk.html" class="story-row">
-          <div class="story-row__img">
-            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=75" alt="KK skyline" loading="lazy">
-          </div>
-          <div class="story-row__body">
-            <span class="story-row__cat">Lifestyle</span>
-            <div class="story-row__title">Living and Working Remotely in KK: An Honest One-Year Review</div>
-            <p class="story-row__excerpt">What nobody tells you about doing WFH in Kota Kinabalu.</p>
-            <p class="story-row__meta">June 2026</p>
-          </div>
-        </a>
-
-        <div style="padding: 32px 0 48px;">
-          <a href="blog.html" style="font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--border); padding-bottom:2px;">All stories &#8594;</a>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="hp-about">
-      <div class="hp-about-inner">
-        <span class="hp-about-label">About this publication</span>
-        <p class="hp-about-text">Born in Sabah. Still here. Writing about the places worth your time, from someone who never had a reason to leave.</p>
-        <p class="hp-about-sub">BestSabah is a local guide to Kota Kinabalu and Sabah written by someone who was born here, grew up here, and still lives here. No press trips. No sponsored content. No affiliate pressure. Just places I actually go.</p>
-        <a href="about.html" class="hp-about-link">Read more about this blog</a>
-      </div>
-    </div>
-
+  <!-- NAV OVERLAY -->
+  <div class="nav-overlay" id="nav-overlay">
+    <button class="nav-overlay__close" id="nav-close">✕</button>
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
   </div>
 
-  <footer class="site-footer">
-    <div class="footer-logo">Best<span>Sabah</span></div>
-    <ul class="footer-links">
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">BestSabah</a>
+    <button class="nav__menu" id="nav-open" aria-label="Menu">
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- HERO — full screen, text bottom left -->
+  <section class="hero">
+    <img class="hero__img" src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1800&q=90" alt="Tunku Abdul Rahman Park, Kota Kinabalu">
+    <div class="hero__overlay"></div>
+    <div class="hero__text">
+      <span class="hero__label">Things To Do</span>
+      <h1 class="hero__title">Island Hopping from KK: The Honest Guide to Tunku Abdul Rahman Park</h1>
+      <a href="posts/island-hopping-kk.html" class="hero__read">Read the guide</a>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <div class="intro">
+    <span class="intro__label">Best Sabah</span>
+    <p class="intro__title">A local guide to Kota Kinabalu and Sabah, written by someone who was born here and never had a reason to leave.</p>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section class="categories">
+    <div class="categories__header">
+      <span class="categories__label">Explore</span>
+      <a href="blog.html" class="categories__all">All stories</a>
+    </div>
+    <div class="categories__grid">
+      <a href="blog.html?cat=food" class="cat-item">
+        <div class="cat-item__img">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="Food" loading="lazy">
+        </div>
+        <div class="cat-item__body">
+          <div class="cat-item__name">Food &amp; Drinks</div>
+          <p class="cat-item__desc">Where locals actually eat. No tourist traps.</p>
+        </div>
+      </a>
+      <a href="blog.html?cat=cafes" class="cat-item">
+        <div class="cat-item__img">
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80" alt="Cafes" loading="lazy">
+        </div>
+        <div class="cat-item__body">
+          <div class="cat-item__name">Cafes</div>
+          <p class="cat-item__desc">Old kopi shops and the new wave.</p>
+        </div>
+      </a>
+      <a href="blog.html?cat=things-to-do" class="cat-item">
+        <div class="cat-item__img">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="Things To Do" loading="lazy">
+        </div>
+        <div class="cat-item__body">
+          <div class="cat-item__name">Things To Do</div>
+          <p class="cat-item__desc">Islands, hikes, and everything in between.</p>
+        </div>
+      </a>
+      <a href="blog.html?cat=hidden-gems" class="cat-item">
+        <div class="cat-item__img">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Hidden Gems" loading="lazy">
+        </div>
+        <div class="cat-item__body">
+          <div class="cat-item__name">Hidden Gems</div>
+          <p class="cat-item__desc">Places most visitors never find.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div>
+      <span class="about__label">About this publication</span>
+      <h2 class="about__title">Born in Sabah. Still here. Writing about the places worth your time.</h2>
+      <p class="about__text">No press trips. No sponsored content. No affiliate pressure. Just places I actually go, food I actually eat, and the honest version of what's worth your time in KK.</p>
+      <a href="about.html" class="about__link">Read more</a>
+    </div>
+    <div class="about__img">
+      <img src="https://images.unsplash.com/photo-1598387993441-a364f854cfba?w=800&q=80" alt="Sabah" loading="lazy">
+    </div>
+  </section>
+
+  <!-- STORIES -->
+  <section class="stories">
+    <div class="stories__header">
+      <span class="stories__label">Latest Stories</span>
+      <a href="blog.html" class="categories__all">View all</a>
+    </div>
+    <div class="stories__grid">
+      <a href="posts/kundasang-morning.html" class="story-item">
+        <div class="story-item__img">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=80" alt="Kundasang" loading="lazy">
+        </div>
+        <span class="story-item__cat">Hidden Gems</span>
+        <div class="story-item__title">Kundasang in the Morning: Sabah's Highland Secret</div>
+        <p class="story-item__excerpt">Cool air, vegetable farms, and one of the best views in all of Borneo.</p>
+      </a>
+      <a href="posts/kopi-shops-kk.html" class="story-item">
+        <div class="story-item__img">
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=700&q=80" alt="Kopi" loading="lazy">
+        </div>
+        <span class="story-item__cat">Cafes</span>
+        <div class="story-item__title">KK's Best Kopi Shops: Old Corners, Strong Brews</div>
+        <p class="story-item__excerpt">The traditional kopi culture in KK is alive and quietly wonderful.</p>
+      </a>
+      <a href="posts/supper-spots-kk.html" class="story-item">
+        <div class="story-item__img">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=80" alt="Food" loading="lazy">
+        </div>
+        <span class="story-item__cat">Food &amp; Drinks</span>
+        <div class="story-item__title">The Best Supper Spots in KK After 10pm</div>
+        <p class="story-item__excerpt">KK comes alive late. Here's where the locals actually go.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <div class="contact">
+    <p class="contact__text">Got a tip or a question? Send me a message.</p>
+    <form class="contact__form" action="https://formspree.io/f/xpqngrwj" method="POST">
+      <input class="contact__input" type="email" name="email" placeholder="Your email address">
+      <input class="contact__input" type="text" name="message" placeholder="Your message" style="flex:2">
+      <button class="contact__btn" type="submit">Send</button>
+    </form>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__logo">BestSabah</div>
+    <ul class="footer__links">
       <li><a href="blog.html">Blog</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <p class="footer-copy">&#169; 2026 BestSabah.com, Kota Kinabalu, Malaysia</p>
+    <p class="footer__copy">&#169; 2026 BestSabah.com</p>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script>
+    const open = document.getElementById('nav-open');
+    const close = document.getElementById('nav-close');
+    const overlay = document.getElementById('nav-overlay');
+    open.addEventListener('click', () => overlay.classList.add('is-open'));
+    close.addEventListener('click', () => overlay.classList.remove('is-open'));
+  </script>
 </body>
 </html>
