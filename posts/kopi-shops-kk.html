@@ -45,9 +45,9 @@
       <div class="post-share">
         <span class="post-share__label">Share</span>
         <div class="post-share__divider"></div>
-        <a class="post-share__btn" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank')" title="Share on X">X</a>
-        <a class="post-share__btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href),'_blank')" title="Share on Facebook">f</a>
-        <a class="post-share__btn" id="copy-link" onclick="navigator.clipboard.writeText(window.location.href);this.textContent='&#10003;';setTimeout(()=>this.textContent='&#128279;',2000)" title="Copy link">&#128279;</a>
+        <a class="post-share__btn post-share__btn--x" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank')" title="Share on X">X</a>
+        <a class="post-share__btn post-share__btn--fb" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href),'_blank')" title="Share on Facebook">f</a>
+        <a class="post-share__btn post-share__btn--copy" id="copy-link" onclick="navigator.clipboard.writeText(window.location.href);this.textContent='&#10003;';setTimeout(()=>this.textContent='&#128279;',2000)" title="Copy link">&#128279;</a>
       </div>
 
       <!-- MAIN CONTENT -->
@@ -112,6 +112,7 @@
 
           <p>Spend at least one morning in a proper kopi shop. Order the same thing twice. That's the point of the place.
         </div>
+
       </div>
 
     </article>
@@ -137,6 +138,14 @@
     </section>
   </div>
 
+  <!-- TOC -->
+  <div class="post-toc-fixed" id="post-toc-fixed">
+    <div class="post-toc">
+      <span class="post-toc__label">Contents</span>
+      <ul class="post-toc__list" id="toc-list"></ul>
+    </div>
+  </div>
+
   <footer class="site-footer">
     <div class="footer-logo">Best<span>Sabah</span></div>
     <ul class="footer-links">
@@ -146,16 +155,9 @@
     </ul>
     <p class="footer-copy">&#169; 2026 BestSabah.com, Kota Kinabalu, Malaysia</p>
   </footer>
-
-  <!-- FIXED TOC -->
-  <div class="post-toc-fixed" id="post-toc-fixed">
-    <div class="post-toc">
-          <span class="post-toc__label">Contents</span>
-          <ul class="post-toc__list" id="toc-list"></ul>
-        </div>
   </div>
 
   <button id="back-to-top" title="Back to top">&#8679;</button>
-  <script src="../js/post.js?v=4"></script>
+  <script src="../js/post.js?v=6"></script>
 </body>
 </html>
