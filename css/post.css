@@ -236,11 +236,28 @@
    ============================================ */
 
 .post-sidebar {
-  position: sticky;
-  top: 88px;
-  padding-top: 0;
-  align-self: start;
-  margin-top: 520px;
+  display: none;
+}
+
+/* Fixed TOC panel — always visible on right side, wide screens only */
+.post-toc-fixed {
+  position: fixed;
+  top: 140px;
+  right: 24px;
+  width: 200px;
+  z-index: 40;
+  display: none;
+}
+
+/* Only show when screen is wide enough to not overlap content */
+@media (min-width: 1280px) {
+  .post-toc-fixed {
+    display: block;
+  }
+}
+
+.post-toc-fixed.is-visible {
+  display: block;
 }
 
 /* Back to top button */
@@ -269,9 +286,10 @@
 }
 
 .post-toc {
-  background: var(--bg2);
+  background: var(--bg);
   border: 1px solid var(--border);
-  padding: 24px;
+  border-right: none;
+  padding: 20px;
 }
 
 .post-toc__label {
@@ -281,8 +299,8 @@
   text-transform: uppercase;
   color: var(--muted);
   display: block;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -297,10 +315,10 @@
 }
 
 .post-toc__list a {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--muted);
   line-height: 1.5;
-  padding: 6px 10px;
+  padding: 5px 8px;
   display: block;
   border-left: 2px solid transparent;
   transition: color 0.2s, border-color 0.2s, background 0.2s;
@@ -309,14 +327,14 @@
 
 .post-toc__list a:hover {
   color: var(--text);
-  background: var(--bg);
+  background: var(--bg2);
 }
 
 .post-toc__list a.is-active {
   color: var(--green);
   border-left-color: var(--green);
   font-weight: 500;
-  background: var(--bg);
+  background: var(--bg2);
 }
 
 /* ============================================
