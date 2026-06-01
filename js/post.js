@@ -4,13 +4,19 @@
 (function() {
   const bar = document.getElementById('reading-progress');
   if (!bar) return;
-  window.addEventListener('scroll', function() {
+
+  function updateBar() {
     const doc = document.documentElement;
-    const scrollTop = doc.scrollTop || document.body.scrollTop;
-    const scrollHeight = doc.scrollHeight - doc.clientHeight;
+    const body = document.body;
+    const scrollTop = doc.scrollTop || body.scrollTop;
+    const scrollHeight = (doc.scrollHeight || body.scrollHeight) - doc.clientHeight;
     const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-    bar.style.width = pct + '%';
-  }, { passive: true });
+    bar.style.width = Math.min(pct, 100) + '%';
+  }
+
+  window.addEventListener('scroll', updateBar, { passive: true });
+  document.addEventListener('scroll', updateBar, { passive: true });
+  document.documentElement.addEventListener('scroll', updateBar, { passive: true });
 })();
 
 // ============================================
@@ -47,12 +53,11 @@
   const links = tocList.querySelectorAll('a');
 
   function updateTOC() {
-    const scrollY = window.scrollY;
+    const scrollY = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop;
     const windowH = window.innerHeight;
-    const docH = document.documentElement.scrollHeight;
+    const docH = document.documentElement.scrollHeight || document.body.scrollHeight;
     let current = headings[0].id;
 
-    // If near bottom of page, highlight last heading
     if (scrollY + windowH >= docH - 40) {
       current = headings[headings.length - 1].id;
     } else {
@@ -69,6 +74,8 @@
   }
 
   window.addEventListener('scroll', updateTOC, { passive: true });
+  document.addEventListener('scroll', updateTOC, { passive: true });
+  document.documentElement.addEventListener('scroll', updateTOC, { passive: true });
   updateTOC();
 })();
 
@@ -78,12 +85,21 @@
 (function() {
   const btn = document.getElementById('back-to-top');
   if (!btn) return;
-  window.addEventListener('scroll', function() {
-    btn.style.opacity = window.scrollY > 600 ? '1' : '0';
-    btn.style.pointerEvents = window.scrollY > 600 ? 'auto' : 'none';
-  }, { passive: true });
+
+  function checkScroll() {
+    const scrollY = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop;
+    btn.style.opacity = scrollY > 600 ? '1' : '0';
+    btn.style.pointerEvents = scrollY > 600 ? 'auto' : 'none';
+  }
+
+  window.addEventListener('scroll', checkScroll, { passive: true });
+  document.addEventListener('scroll', checkScroll, { passive: true });
+  document.documentElement.addEventListener('scroll', checkScroll, { passive: true });
+
   btn.addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   });
 })();
 
