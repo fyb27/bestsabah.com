@@ -3,123 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Best Sabah | A Local Guide to KK and Sabah</title>
+  <title>Best Sabah — A Local Guide to KK and Sabah</title>
   <meta name="description" content="Written by a Sabahan who actually lives here. Food, places, and real life in Kota Kinabalu and Sabah.">
   <link rel="stylesheet" href="css/style.css">
   <style>
 
-    /* ============================================
-       HOMEPAGE EDITORIAL LAYOUT
-       ============================================ */
-
+    /* ── MASTHEAD ── */
     .hp-masthead {
+      padding: 64px 24px 48px;
       border-bottom: 1px solid var(--border);
-      padding: 48px 24px 40px;
     }
 
     .hp-masthead-inner {
       max-width: var(--max);
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: end;
     }
 
-    .hp-masthead-brand {
+    .hp-publication-name {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(48px, 7vw, 88px);
+      font-size: clamp(56px, 9vw, 120px);
       font-weight: 700;
-      line-height: 1;
+      line-height: 0.95;
+      letter-spacing: -3px;
       color: var(--text);
-      letter-spacing: -2px;
+      margin-bottom: 28px;
     }
 
-    .hp-masthead-brand span { color: var(--green); }
+    .hp-publication-name span { color: var(--green); }
+
+    .hp-masthead-rule {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .hp-masthead-rule::before,
+    .hp-masthead-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .hp-masthead-tagline {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
 
     .hp-masthead-desc {
       font-size: 15px;
       color: var(--muted);
       line-height: 1.7;
-      max-width: 380px;
-      padding-bottom: 4px;
+      max-width: 520px;
     }
 
-    .hp-masthead-desc strong {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    /* ============================================
-       FEATURED STORY
-       ============================================ */
-
+    /* ── FEATURED ── */
     .hp-featured {
-      border-bottom: 1px solid var(--border);
       padding: 0 24px;
+      border-bottom: 1px solid var(--border);
     }
 
     .hp-featured-inner {
       max-width: var(--max);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.2fr 1fr;
       gap: 0;
-      min-height: 420px;
-    }
-
-    .hp-featured-text {
-      padding: 56px 64px 56px 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border-right: 1px solid var(--border);
-    }
-
-    .hp-featured-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 20px;
-      display: block;
-    }
-
-    .hp-featured-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 3.5vw, 44px);
-      font-weight: 700;
-      line-height: 1.15;
-      color: var(--text);
-      margin-bottom: 20px;
-      transition: color 0.2s;
-    }
-
-    .hp-featured-title:hover { color: var(--green); }
-
-    .hp-featured-excerpt {
-      font-size: 16px;
-      color: var(--muted);
-      line-height: 1.75;
-      margin-bottom: 32px;
-    }
-
-    .hp-featured-read {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--text);
-      border-bottom: 1.5px solid var(--text);
-      padding-bottom: 2px;
-      display: inline-block;
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    .hp-featured-read:hover {
-      color: var(--green);
-      border-color: var(--green);
+      min-height: 480px;
     }
 
     .hp-featured-image {
@@ -138,12 +93,67 @@
       transform: scale(1.03);
     }
 
-    /* ============================================
-       LATEST STORIES | EDITORIAL GRID
-       ============================================ */
+    .hp-featured-text {
+      padding: 56px 0 56px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-left: 1px solid var(--border);
+    }
 
+    .hp-featured-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .hp-featured-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 20px;
+      transition: color 0.2s;
+      display: block;
+      text-decoration: none;
+    }
+
+    .hp-featured-title:hover { color: var(--green); }
+
+    .hp-featured-excerpt {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+
+    .hp-featured-read {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1.5px solid var(--text);
+      padding-bottom: 2px;
+      display: inline-block;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .hp-featured-read:hover {
+      color: var(--green);
+      border-color: var(--green);
+    }
+
+    /* ── LATEST STORIES ── */
     .hp-latest {
       padding: 0 24px;
+      border-bottom: 1px solid var(--border);
     }
 
     .hp-latest-inner {
@@ -151,39 +161,47 @@
       margin: 0 auto;
     }
 
-    .hp-latest-header {
+    .hp-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 40px 0 0;
-      margin-bottom: 0;
       border-bottom: 1px solid var(--border);
+      margin-bottom: 0;
     }
 
-    .hp-latest-label {
+    .hp-section-label {
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--muted);
-      display: block;
-      padding-bottom: 12px;
     }
 
-    /* Story rows | editorial list style */
+    .hp-section-link {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .hp-section-link:hover { color: var(--text); }
+
+    /* Story rows */
     .story-row {
       display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 32px;
-      align-items: start;
-      padding: 32px 0;
+      grid-template-columns: 240px 1fr;
+      gap: 0;
       border-bottom: 1px solid var(--border);
       text-decoration: none;
     }
 
-    .story-row:hover .story-row__title {
-      color: var(--green);
-    }
+    .story-row:hover .story-row__title { color: var(--green); }
 
     .story-row__img {
-      aspect-ratio: 3/2;
       overflow: hidden;
     }
 
@@ -194,12 +212,13 @@
       transition: transform 0.4s ease;
     }
 
-    .story-row:hover .story-row__img img {
-      transform: scale(1.05);
-    }
+    .story-row:hover .story-row__img img { transform: scale(1.04); }
 
     .story-row__body {
-      padding-top: 4px;
+      padding: 32px 0 32px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .story-row__cat {
@@ -209,12 +228,12 @@
       text-transform: uppercase;
       color: var(--green);
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .story-row__title {
       font-family: 'Playfair Display', serif;
-      font-size: 22px;
+      font-size: clamp(20px, 2.2vw, 28px);
       font-weight: 700;
       color: var(--text);
       line-height: 1.25;
@@ -229,24 +248,22 @@
     }
 
     .story-row__meta {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--muted);
-      margin-top: 14px;
+      margin-top: 16px;
+      letter-spacing: 0.5px;
     }
 
-    /* ============================================
-       ABOUT STRIP
-       ============================================ */
-
+    /* ── ABOUT ── */
     .hp-about {
-      background: var(--dark);
-      color: var(--white);
-      padding: 64px 24px;
+      padding: 80px 24px;
+      border-bottom: 1px solid var(--border);
     }
 
     .hp-about-inner {
-      max-width: 680px;
+      max-width: 640px;
       margin: 0 auto;
+      text-align: center;
     }
 
     .hp-about-label {
@@ -254,26 +271,26 @@
       font-weight: 700;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: var(--green2);
+      color: var(--muted);
       display: block;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
-    .hp-about-text {
+    .hp-about-quote {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(22px, 3vw, 30px);
+      font-size: clamp(26px, 3.5vw, 40px);
       font-weight: 400;
       font-style: italic;
-      line-height: 1.5;
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 32px;
+      line-height: 1.4;
+      color: var(--text);
+      margin-bottom: 28px;
     }
 
     .hp-about-sub {
       font-size: 14px;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.75;
-      margin-bottom: 28px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 32px;
     }
 
     .hp-about-link {
@@ -281,57 +298,45 @@
       font-weight: 600;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--white);
-      border-bottom: 1px solid rgba(255,255,255,0.3);
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1.5px solid var(--border);
       padding-bottom: 2px;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, color 0.2s;
     }
 
     .hp-about-link:hover {
-      border-color: var(--white);
+      color: var(--green);
+      border-color: var(--green);
     }
 
-    /* ============================================
-       RESPONSIVE
-       ============================================ */
-
+    /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
-      .hp-masthead-inner {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
       .hp-featured-inner {
         grid-template-columns: 1fr;
         min-height: auto;
       }
+      .hp-featured-image { aspect-ratio: 16/9; }
       .hp-featured-text {
         padding: 40px 0;
-        border-right: none;
-        border-bottom: 1px solid var(--border);
+        border-left: none;
+        border-top: 1px solid var(--border);
       }
-      .hp-featured-image {
-        aspect-ratio: 16/9;
-      }
-      .story-row {
-        grid-template-columns: 120px 1fr;
-        gap: 20px;
-      }
+      .story-row { grid-template-columns: 140px 1fr; }
+      .story-row__body { padding: 24px 0 24px 24px; }
     }
 
     @media (max-width: 560px) {
-      .story-row {
-        grid-template-columns: 1fr;
-      }
-      .story-row__img {
-        aspect-ratio: 16/9;
-      }
+      .story-row { grid-template-columns: 1fr; }
+      .story-row__img { aspect-ratio: 16/9; height: auto; }
+      .story-row__body { padding: 20px 0; }
+      .hp-publication-name { letter-spacing: -1px; }
     }
 
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="site-logo">Best<span>Sabah</span></a>
@@ -365,22 +370,25 @@
     <!-- MASTHEAD -->
     <div class="hp-masthead">
       <div class="hp-masthead-inner">
-        <div class="hp-masthead-brand">Best<span>Sabah</span></div>
-        <p class="hp-masthead-desc">Written by a Sabahan who has spent his life exploring KK | its food, coffee shops, parks, malls, and hidden corners.<br><br><strong>No tourist brochure nonsense. Just honest recommendations.</strong></p>
+        <h1 class="hp-publication-name">Best<span>Sabah</span></h1>
+        <div class="hp-masthead-rule">
+          <span class="hp-masthead-tagline">A Local Guide to Kota Kinabalu &amp; Sabah</span>
+        </div>
+        <p class="hp-masthead-desc">Written by a Sabahan who has spent his life exploring KK. Food, coffee, parks, hidden corners, and honest recommendations. No tourist brochure nonsense.</p>
       </div>
     </div>
 
     <!-- FEATURED STORY -->
     <div class="hp-featured">
       <div class="hp-featured-inner">
+        <div class="hp-featured-image">
+          <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1200&q=80" alt="Tunku Abdul Rahman Park, Kota Kinabalu">
+        </div>
         <div class="hp-featured-text">
           <span class="hp-featured-label">Featured Story</span>
           <a href="posts/island-hopping-kk.html" class="hp-featured-title">Island Hopping from KK: The Honest Guide to Tunku Abdul Rahman Park</a>
           <p class="hp-featured-excerpt">Five islands. One park. Which ones are worth it, which are overrated, and when to go to beat the crowds.</p>
-          <a href="posts/island-hopping-kk.html" class="hp-featured-read">Read the guide</a>
-        </div>
-        <div class="hp-featured-image">
-          <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1200&q=80" alt="Tunku Abdul Rahman Park, Kota Kinabalu">
+          <a href="posts/island-hopping-kk.html" class="hp-featured-read">Read the guide &#8594;</a>
         </div>
       </div>
     </div>
@@ -388,8 +396,9 @@
     <!-- LATEST STORIES -->
     <div class="hp-latest">
       <div class="hp-latest-inner">
-        <div class="hp-latest-header">
-          <span class="hp-latest-label">Latest Stories</span>
+        <div class="hp-section-header">
+          <span class="hp-section-label">Latest Stories</span>
+          <a href="blog.html" class="hp-section-link">All stories &#8594;</a>
         </div>
 
         <a href="posts/kundasang-morning.html" class="story-row">
@@ -400,7 +409,7 @@
             <span class="story-row__cat">Hidden Gems</span>
             <div class="story-row__title">Kundasang in the Morning: Sabah's Highland Secret Two Hours from KK</div>
             <p class="story-row__excerpt">Cool air, vegetable farms, and one of the best views in all of Borneo. Only two hours from KK.</p>
-            <p class="story-row__meta">June 2026</p>
+            <p class="story-row__meta">June 2026 &nbsp;·&nbsp; 6 min read</p>
           </div>
         </a>
 
@@ -412,7 +421,7 @@
             <span class="story-row__cat">Cafes</span>
             <div class="story-row__title">KK's Best Kopi Shops: Old Corners, Strong Brews, and Good Mornings</div>
             <p class="story-row__excerpt">The traditional kopi culture in Kota Kinabalu is alive, unhurried, and quietly wonderful.</p>
-            <p class="story-row__meta">June 2026</p>
+            <p class="story-row__meta">June 2026 &nbsp;·&nbsp; 5 min read</p>
           </div>
         </a>
 
@@ -424,42 +433,41 @@
             <span class="story-row__cat">Food &amp; Drinks</span>
             <div class="story-row__title">The Best Supper Spots in KK: Where Locals Actually Go After 10pm</div>
             <p class="story-row__excerpt">KK comes alive late. Here's where to go when the hunger hits after midnight.</p>
-            <p class="story-row__meta">June 2026</p>
+            <p class="story-row__meta">June 2026 &nbsp;·&nbsp; 6 min read</p>
           </div>
         </a>
 
         <a href="posts/wfh-kk.html" class="story-row">
           <div class="story-row__img">
-            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=75" alt="KK skyline" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=75" alt="KK" loading="lazy">
           </div>
           <div class="story-row__body">
             <span class="story-row__cat">Lifestyle</span>
             <div class="story-row__title">Living and Working Remotely in KK: An Honest One-Year Review</div>
             <p class="story-row__excerpt">What nobody tells you about doing WFH in Kota Kinabalu.</p>
-            <p class="story-row__meta">June 2026</p>
+            <p class="story-row__meta">June 2026 &nbsp;·&nbsp; 9 min read</p>
           </div>
         </a>
 
-        <div style="padding: 32px 0 48px;">
-          <a href="blog.html" style="font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--border); padding-bottom:2px;">All stories &#8594;</a>
+        <div style="padding: 32px 0 40px;">
+          <a href="blog.html" class="hp-section-link">View all stories &#8594;</a>
         </div>
 
       </div>
     </div>
 
-    <!-- ABOUT STRIP -->
+    <!-- ABOUT -->
     <div class="hp-about">
       <div class="hp-about-inner">
-        <span class="hp-about-label">About this publication</span>
-        <p class="hp-about-text">"Born in Sabah. Still here. Writing about the places worth your time, from someone who never had a reason to leave."</p>
-        <p class="hp-about-sub">BestSabah is a local guide to Kota Kinabalu and Sabah written by someone who was born here, grew up here, and still lives here. No press trips. No sponsored content. No affiliate pressure. Just places I actually go.</p>
+        <span class="hp-about-label">About This Publication</span>
+        <p class="hp-about-quote">"Born in Sabah. Still here. Writing about the places worth your time, from someone who never had a reason to leave."</p>
+        <p class="hp-about-sub">No press trips. No sponsored content. No affiliate pressure. Just places I actually go, food I actually eat, and the honest version of what's worth your time in KK.</p>
         <a href="about.html" class="hp-about-link">Read more about this blog</a>
       </div>
     </div>
 
   </div>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-logo">Best<span>Sabah</span></div>
     <ul class="footer-links">
@@ -467,7 +475,7 @@
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <p class="footer-copy">&#169; 2026 BestSabah.com &#8212; Kota Kinabalu, Malaysia</p>
+    <p class="footer-copy">&#169; 2026 BestSabah.com, Kota Kinabalu, Malaysia</p>
   </footer>
 
   <script src="js/main.js"></script>
