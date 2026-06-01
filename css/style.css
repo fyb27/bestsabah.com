@@ -118,6 +118,16 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
   transform: translateY(0);
 }
 
+/* Bridge the gap between nav link and dropdown */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 16px;
+}
+
 .nav-dropdown li a {
   display: block;
   padding: 10px 20px;
