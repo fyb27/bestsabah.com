@@ -9,7 +9,7 @@
   left: 0;
   width: 0%;
   height: 3px;
-  background: var(--green);
+  background: rgba(255,255,255,0.9);
   z-index: 999;
   transition: width 0.1s linear;
 }
@@ -238,7 +238,9 @@
 .post-sidebar {
   position: sticky;
   top: 88px;
-  padding-top: 280px;
+  padding-top: 0;
+  align-self: start;
+  margin-top: 520px;
 }
 
 /* Back to top button */
