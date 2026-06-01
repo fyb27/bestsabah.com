@@ -121,24 +121,22 @@
   margin: 40px 0;
 }
 
-/* Hero image — wider than text column */
+/* Hero image — contained, after intro text */
 .post-img--hero {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
   margin-top: 0;
   margin-bottom: 48px;
 }
 
 .post-img--hero img {
   width: 100%;
-  aspect-ratio: 16/7;
+  aspect-ratio: 16/10;
   object-fit: cover;
 }
 
 /* Regular inline image — full column width */
 .post-img img {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16/10;
   object-fit: cover;
   display: block;
 }
