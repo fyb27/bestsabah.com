@@ -12,7 +12,7 @@
   transition: width 0.1s linear;
 }
 
-/* Outermost wrapper: share col + content+toc */
+/* Flex row: share | article | toc */
 .post {
   max-width: 1080px;
   margin: 0 auto;
@@ -22,7 +22,7 @@
   align-items: flex-start;
 }
 
-/* Share column */
+/* ── Share column ── */
 .post-share {
   flex-shrink: 0;
   width: 48px;
@@ -53,7 +53,6 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: none;
   font-size: 13px;
   font-weight: 700;
   text-decoration: none;
@@ -63,8 +62,8 @@
 }
 
 .post-share__btn:hover { transform: scale(1.12); opacity: 0.85; }
-.post-share__btn--x   { background: #000; color: #fff; font-size: 11px; }
-.post-share__btn--fb  { background: #1877F2; color: #fff; font-size: 15px; }
+.post-share__btn--x    { background: #000; color: #fff; font-size: 11px; }
+.post-share__btn--fb   { background: #1877F2; color: #fff; font-size: 15px; }
 .post-share__btn--copy { background: var(--green); color: #fff; font-size: 14px; }
 
 .post-share__divider {
@@ -73,23 +72,22 @@
   background: var(--border);
 }
 
-/* Center: post-main (article) */
+/* ── Article column ── */
 .post-main {
   flex: 1;
   min-width: 0;
 }
 
-/* RIGHT: TOC sidebar — sticky beside the article */
+/* ── TOC column ── */
 .post-sidebar {
   flex-shrink: 0;
   width: 200px;
   position: sticky;
   top: 96px;
-  /* align-self: flex-start is implicit with align-items: flex-start on parent */
 }
 
 /* ============================================
-   POST HEADER + BODY
+   HEADER
    ============================================ */
 
 .post-header { margin-bottom: 40px; }
@@ -140,6 +138,10 @@
   padding-left: 20px;
 }
 
+/* ============================================
+   BODY
+   ============================================ */
+
 .post-body { padding: 0 0 80px; }
 
 .post-body p {
@@ -187,12 +189,15 @@
    IMAGES
    ============================================ */
 
-.post-img { margin: 36px 0; clear: both; }
+.post-img {
+  margin: 36px 0;
+  clear: both;
+}
 
+/* Hero image — no negative margins, stays within column */
 .post-img--hero {
-  margin-right: -60px;
-  margin-bottom: 44px;
-  clear: none;
+  margin: 0 0 44px 0;
+  overflow: hidden;
 }
 
 .post-img--hero img {
@@ -262,15 +267,13 @@
 }
 
 .post-toc__list a:hover { color: var(--text); background: var(--bg); }
+
 .post-toc__list a.is-active {
   color: var(--green);
   border-left-color: var(--green);
   font-weight: 500;
   background: var(--bg);
 }
-
-/* not used anymore */
-.post-toc-fixed { display: none; }
 
 /* ============================================
    BACK TO TOP
@@ -324,7 +327,6 @@
 
 @media (max-width: 960px) {
   .post-sidebar { display: none; }
-  .post-img--hero { margin-right: 0; }
 }
 
 @media (max-width: 720px) {
