@@ -231,6 +231,36 @@
 }
 
 /* ============================================
+   VERDICT / AUTHOR NOTE
+   ============================================ */
+
+.post-verdict {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--green);
+  padding: 24px 28px;
+  margin: 48px 0;
+}
+
+.post-verdict__label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--green);
+  display: block;
+  margin-bottom: 14px;
+}
+
+.post-verdict p {
+  margin-bottom: 12px;
+}
+
+.post-verdict p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
    TOC
    ============================================ */
 
