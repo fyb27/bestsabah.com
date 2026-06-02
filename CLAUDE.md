@@ -168,20 +168,25 @@ Post file naming: `posts/\[slug].html` — lowercase, hyphens only.
 
 \---
 
-## Voice profile
+## Voice & Tone
 
-* Friend visiting for the first time — enthusiastic but direct
+Casual KK local. Like recommending to a friend. Example:
+
+> "hmm, oh you're in the mood for beef noodles ah? I recommend yii siang. Ok honestly speaking, there's really alot of good beef noodles in KK. but yii siang beef noodle really takes the cake lah. 1st of all. the portion is huge man. For 15 bucks, you'll definitely be satisfied. Parking also easy, and you don't have to wait so long for the food."
+
+Rules:
+* No em dashes. Ever. Anywhere.
+* Short sentences.
+* "lah", "man", "eh", "oso" — use sparingly, not every sentence
+* Honest, not hype
+* Local knowledge tone, not tourist guide
 * Specific: actual prices, parking, what to order
-* Honest about downsides without complaining
-* Subtle Sabahan cadence (kan, lah, one) — max 1-2 per post, never forced
-* No tourism brochure language
 * No generic openers ("Sabah is a beautiful...")
+* No tourism brochure language
 
 **Approved tagline:**
 
 > "Born in Sabah. Still here. Writing about the places worth your time, from someone who never had a reason to leave."
-
-**Hard rule: NEVER use em dashes. Anywhere. Ever. In content or code.**
 
 \---
 
