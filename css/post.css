@@ -215,13 +215,11 @@
 }
 
 .post-img--small {
-  float: right;
-  width: 44%;
-  margin: 4px 0 24px 32px;
-  clear: right;
+  margin: 36px 0;
+  clear: both;
 }
 
-.post-img--small img { aspect-ratio: 4/3; }
+.post-img--small img { aspect-ratio: 16/9; }
 
 .post-img-caption {
   font-size: 11px;
@@ -371,6 +369,6 @@
   }
   .post-share__label { writing-mode: horizontal-tb; transform: none; }
   .post-share__divider { width: 32px; height: 1px; }
-  .post-img--small { float: none; width: 100%; margin: 28px 0; }
+
   .post-body p, .post-body li { font-size: 16px; }
 }
