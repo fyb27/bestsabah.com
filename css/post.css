@@ -160,6 +160,7 @@
   padding-top: 8px;
   border-top: 1px solid var(--border);
   scroll-margin-top: 90px;
+  clear: both;
 }
 
 .post-body strong { font-weight: 600; }
