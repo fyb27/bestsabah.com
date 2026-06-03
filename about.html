@@ -7,30 +7,10 @@
   <link rel="stylesheet" href="css/style.css">
   <style>
     .about-wrap {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 64px;
-      align-items: start;
-    }
-    .about-photo {
-      position: sticky;
-      top: 96px;
-    }
-    .about-photo img {
-      width: 100%;
-      aspect-ratio: 3/4;
-      object-fit: cover;
-      filter: grayscale(15%);
-    }
-    .about-photo-caption {
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 12px;
-      text-align: center;
+      max-width: 680px;
     }
     @media (max-width: 768px) {
-      .about-wrap { grid-template-columns: 1fr; }
-      .about-photo { position: static; max-width: 240px; }
+      .about-wrap { max-width: 100%; }
     }
 
 
@@ -72,22 +52,20 @@
         <p style="font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:var(--green); font-weight:600; margin-bottom:40px;">About</p>
         <div class="about-wrap">
 
-          <div class="about-photo">
-            <!-- Replace src with your actual photo later -->
-            <img src="https://placehold.co/280x373/1a1a1a/ffffff?text=Your+Photo+Here" alt="Your photo">
-            <p class="about-photo-caption">Kota Kinabalu, Sabah</p>
-          </div>
-
           <div class="about-text">
             <h1 style="font-family:'Playfair Display',serif; font-size:clamp(32px,5vw,48px); font-weight:700; line-height:1.15; margin-bottom:32px;">A local's honest take on Sabah</h1>
 
-            <p style="font-size:17px; line-height:1.8; color:var(--text); margin-bottom:24px;">I'm a Sabahan who was born, grew up, and still lives in Kota Kinabalu. I work from home, which means I spend a lot of time actually in this city: eating at the same places, trying new ones, watching what opens and what closes.</p>
+            <p style="font-size:17px; line-height:1.8; color:var(--text); margin-bottom:24px;">My name is Fong. I'm a Sabahan who was born, grew up, and still lives in Kota Kinabalu. I work from home, which means I spend a lot of time actually in this city: eating at the same places, trying new ones, watching what opens and what closes.</p>
 
             <p style="font-size:17px; line-height:1.8; color:var(--text); margin-bottom:24px;">This blog started because every time someone from outside Sabah asked me "where should I go?" I found myself writing the same long WhatsApp message. Better to just put it here.</p>
 
             <p style="font-size:17px; line-height:1.8; color:var(--text); margin-bottom:24px;">I'm into food, badminton, pickleball, and fitness. A lot of the content here reflects that. I'll also write about whatever else feels worth documenting: living costs, day trips, the honest version of "is KK good for digital nomads" (yes, with caveats).</p>
 
-            <p style="font-size:17px; line-height:1.8; color:var(--text); margin-bottom:48px;">No sponsored content. No paid placements. If I say a place is good, it's because I actually think it's good.</p>
+            <p style="font-size:17px; line-height:1.8; color:var(--text); margin-bottom:24px;">No sponsored content. No paid placements. If I say a place is good, it's because I actually think it's good.</p>
+
+            <p style="font-size:17px; line-height:1.8; color:var(--text); margin-bottom:24px;">I'm also an amateur photographer, so the photos won't always be perfect. But they're all taken by me, on the ground, at the actual places.</p>
+
+            <p style="font-size:17px; line-height:1.8; color:var(--text); margin-bottom:48px;">If you have a question, a tip, or just want to say hi, feel free to message me about anything. Always happy to hear from people.</p>
 
             <a href="contact.html" style="display:inline-block; font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--white); background:var(--dark); padding:14px 36px; transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Get in touch</a>
           </div>
