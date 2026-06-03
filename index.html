@@ -218,7 +218,7 @@
 
     .categories__grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 0;
     }
 
@@ -498,6 +498,7 @@
       .cat-item:nth-child(2) { border-right: none; }
       .cat-item:nth-child(3) { border-right: 1px solid #e8e8e8; border-top: 1px solid #e8e8e8; }
       .cat-item:nth-child(4) { border-top: 1px solid #e8e8e8; }
+      .cat-item:nth-child(5) { border-right: none; border-top: 1px solid #e8e8e8; }
       .about { grid-template-columns: 1fr; gap: 40px; padding: 80px 24px; }
       .stories { padding: 0 24px; }
       .stories__grid { grid-template-columns: 1fr; }
@@ -554,22 +555,13 @@
       <a href="blog.html" class="categories__all">All stories</a>
     </div>
     <div class="categories__grid">
-      <a href="blog.html?cat=food" class="cat-item">
+      <a href="blog.html?cat=best-food" class="cat-item">
         <div class="cat-item__img">
-          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="Food" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="Best Food" loading="lazy">
         </div>
         <div class="cat-item__body">
-          <div class="cat-item__name">Food &amp; Drinks</div>
+          <div class="cat-item__name">Best Food</div>
           <p class="cat-item__desc">Where locals actually eat. No tourist traps.</p>
-        </div>
-      </a>
-      <a href="blog.html?cat=cafes" class="cat-item">
-        <div class="cat-item__img">
-          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80" alt="Cafes" loading="lazy">
-        </div>
-        <div class="cat-item__body">
-          <div class="cat-item__name">Cafes</div>
-          <p class="cat-item__desc">Old kopi shops and the new wave.</p>
         </div>
       </a>
       <a href="blog.html?cat=things-to-do" class="cat-item">
@@ -578,7 +570,7 @@
         </div>
         <div class="cat-item__body">
           <div class="cat-item__name">Things To Do</div>
-          <p class="cat-item__desc">Islands, hikes, and everything in between.</p>
+          <p class="cat-item__desc">Islands, mountains, and everything in between.</p>
         </div>
       </a>
       <a href="blog.html?cat=hidden-gems" class="cat-item">
@@ -588,6 +580,24 @@
         <div class="cat-item__body">
           <div class="cat-item__name">Hidden Gems</div>
           <p class="cat-item__desc">Places most visitors never find.</p>
+        </div>
+      </a>
+      <a href="blog.html?cat=lifestyle" class="cat-item">
+        <div class="cat-item__img">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" alt="Lifestyle" loading="lazy">
+        </div>
+        <div class="cat-item__body">
+          <div class="cat-item__name">Lifestyle</div>
+          <p class="cat-item__desc">Living in KK. Cost of life, working remote, the real story.</p>
+        </div>
+      </a>
+      <a href="blog.html?cat=sports" class="cat-item">
+        <div class="cat-item__img">
+          <img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=600&q=80" alt="Sports" loading="lazy">
+        </div>
+        <div class="cat-item__body">
+          <div class="cat-item__name">Sports</div>
+          <p class="cat-item__desc">Badminton, pickleball, hiking. KK is good for this.</p>
         </div>
       </a>
     </div>
@@ -622,7 +632,7 @@
         <div class="story-item__img">
           <img src="posts/images/yu-kee-spread.jpg" alt="Yu Kee Bak Kut Teh spread with pork belly, meatballs and yau char kwai" loading="lazy">
         </div>
-        <span class="story-item__cat">Food &amp; Drinks</span>
+        <span class="story-item__cat">Best Food</span>
         <div class="story-item__title">The Best Bak Kut Teh in KK: Yu Kee</div>
         <p class="story-item__excerpt">Deep herbal broth, fall-off-the-bone pork, free soup top-up. Yu Kee on Jalan Gaya is the answer.</p>
       </a>
@@ -630,7 +640,7 @@
         <div class="story-item__img">
           <img src="posts/images/yii-siang-beef-soup.jpg" alt="Bowl of clear beef soup at Yii Siang with tender beef cuts" loading="lazy">
         </div>
-        <span class="story-item__cat">Food &amp; Drinks</span>
+        <span class="story-item__cat">Best Food</span>
         <div class="story-item__title">Yii Siang Beef Noodle: Best Beef Noodles in KK</div>
         <p class="story-item__excerpt">RM14 for a huge bowl. Proper beef, clear soup, generous toppings. No argument.</p>
       </a>

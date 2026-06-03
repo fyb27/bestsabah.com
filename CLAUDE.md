@@ -86,13 +86,11 @@ Design reference: kinfolk.com — editorial, clean, minimal.
 
 |Label|slug|
 |-|-|
-|Food \& Drinks|food|
-|Cafes|cafes|
+|Best Food|best-food|
 |Things To Do|things-to-do|
-|Lifestyle|lifestyle|
 |Hidden Gems|hidden-gems|
-|Travel \& Outdoors|travel|
-|Shopping|shopping|
+|Lifestyle|lifestyle|
+|Sports|sports|
 
 \---
 
