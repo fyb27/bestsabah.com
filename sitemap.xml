@@ -53,34 +53,5 @@
     <priority>0.9</priority>
   </url>
 
-  <url>
-    <loc>https://bestsabah.com/posts/island-hopping-kk.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://bestsabah.com/posts/kopi-shops-kk.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://bestsabah.com/posts/supper-spots-kk.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://bestsabah.com/posts/kundasang-morning.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://bestsabah.com/posts/wfh-kk.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
 
 </urlset>
