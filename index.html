@@ -376,11 +376,14 @@
       border-right: 1px solid #e8e8e8;
       padding: 40px 40px 40px 0;
       text-decoration: none;
+      display: flex;
+      flex-direction: column;
     }
 
-    .story-item:first-child { padding-left: 0; }
-    .story-item:last-child { border-right: none; padding-right: 0; padding-left: 40px; }
-    .story-item:nth-child(2) { padding: 40px; }
+    .story-item:nth-child(3n+1) { padding-left: 0; }
+    .story-item:nth-child(3n+2) { padding: 40px; }
+    .story-item:nth-child(3n)   { border-right: none; padding-right: 0; padding-left: 40px; }
+    .story-item:nth-child(n+4)  { border-top: 1px solid #e8e8e8; }
 
     .story-item:hover .story-item__title { opacity: 0.5; }
     .story-item:hover .story-item__img img { transform: scale(1.04); }
@@ -389,6 +392,7 @@
       aspect-ratio: 4/3;
       overflow: hidden;
       margin-bottom: 20px;
+      flex-shrink: 0;
     }
 
     .story-item__img img {
@@ -421,6 +425,13 @@
       font-size: 13px;
       color: #888;
       line-height: 1.6;
+      flex: 1;
+    }
+
+    .story-item__date {
+      font-size: 11px;
+      color: #bbb;
+      margin-top: 14px;
     }
 
     /* ── CONTACT ── */
@@ -525,7 +536,11 @@
       .about { grid-template-columns: 1fr; gap: 40px; padding: 80px 24px; }
       .stories { padding: 0 24px; }
       .stories__grid { grid-template-columns: 1fr; }
-      .story-item { border-right: none; border-bottom: 1px solid #e8e8e8; padding: 32px 0; }
+      .story-item,
+      .story-item:nth-child(3n+1),
+      .story-item:nth-child(3n+2),
+      .story-item:nth-child(3n),
+      .story-item:nth-child(n+4) { border-right: none; border-top: none; border-bottom: 1px solid #e8e8e8; padding: 32px 0; }
       .story-item:last-child { border-bottom: none; }
       .contact { flex-direction: column; align-items: flex-start; padding: 48px 24px; }
       .contact__form { flex: none; width: 100%; }
@@ -642,40 +657,7 @@
       <span class="stories__label">Latest Stories</span>
       <a href="blog.html" class="categories__all">View all</a>
     </div>
-    <div class="stories__grid">
-      <a href="posts/andrew-wong-chicken-rice.html" class="story-item">
-        <div class="story-item__img">
-          <img src="posts/images/andrew-wong-chicken-rice-shopfront.jpg" alt="Andrew Wong Hainanese Chicken Rice stall at Damai Plaza, Kota Kinabalu" loading="lazy">
-        </div>
-        <span class="story-item__cat">Best Food</span>
-        <div class="story-item__title">Andrew Wong Hainanese Chicken Rice: The Best in Kota Kinabalu</div>
-        <p class="story-item__excerpt">Hidden in Damai Plaza. Massive portions, juicy chicken, and a ginger sauce worth the drive.</p>
-      </a>
-      <a href="posts/climbing-mount-kinabalu-guide.html" class="story-item">
-        <div class="story-item__img">
-          <img src="posts/images/11-kinabalu-above-clouds-blue-sky.jpg" width="2560" height="1920" alt="Above the clouds on Mount Kinabalu, Sabah" loading="lazy">
-        </div>
-        <span class="story-item__cat">Things To Do</span>
-        <div class="story-item__title">I Climbed Mount Kinabalu. Here's Everything You Need to Know.</div>
-        <p class="story-item__excerpt">Booking, training, Kampung Adidas, and what it actually feels like standing at 4,095m.</p>
-      </a>
-      <a href="posts/best-shopping-mall-kota-kinabalu-imago.html" class="story-item">
-        <div class="story-item__img">
-          <img src="posts/images/imago-mall-kk-atrium.jpg" width="2217" height="1663" alt="Imago Shopping Mall atrium, KK Times Square" loading="lazy">
-        </div>
-        <span class="story-item__cat">Things To Do</span>
-        <div class="story-item__title">The Best Shopping Mall in Kota Kinabalu: Imago</div>
-        <p class="story-item__excerpt">Clean, well managed, great brands and solid food. The only mall answer you need in KK.</p>
-      </a>
-      <a href="posts/best-seafood-kota-kinabalu.html" class="story-item">
-        <div class="story-item__img">
-          <img src="posts/images/sasa-seafood-restaurant-exterior.jpg" alt="Sasa Seafood Restaurant exterior in Penampang, Kota Kinabalu" loading="lazy">
-        </div>
-        <span class="story-item__cat">Best Food</span>
-        <div class="story-item__title">Sasa Seafood Restaurant: Best Seafood in Kota Kinabalu?</div>
-        <p class="story-item__excerpt">Fresh from the tank, cooked fast, priced right. Around RM40 per head for a full spread.</p>
-      </a>
-    </div>
+    <div class="stories__grid" id="stories-grid"></div>
   </section>
 
   <!-- CONTACT -->
@@ -706,6 +688,27 @@
     const overlay = document.getElementById('nav-overlay');
     open.addEventListener('click', () => overlay.classList.add('is-open'));
     close.addEventListener('click', () => overlay.classList.remove('is-open'));
+  </script>
+
+  <script>
+    const stories = [
+      { url: 'posts/andrew-wong-chicken-rice.html',                       img: 'posts/images/andrew-wong-chicken-rice-shopfront.jpg',       alt: 'Andrew Wong Hainanese Chicken Rice stall at Damai Plaza, Kota Kinabalu',  cat: 'Best Food',    title: 'Best Chicken Rice in Kota Kinabalu -- Andrew Wong Hainanese Chicken Rice', excerpt: 'Hidden in Damai Plaza. Massive portions, juicy chicken, and a ginger sauce worth the drive.',          date: 'June 2026' },
+      { url: 'posts/best-shopping-mall-kota-kinabalu-imago.html',         img: 'posts/images/imago-mall-kk-atrium.jpg',                    alt: 'Imago Shopping Mall atrium, KK Times Square',                              cat: 'Things To Do', title: 'The Best Shopping Mall in Kota Kinabalu: Imago',                           excerpt: 'Clean, well managed, great brands and solid food. The only mall answer you need in KK.',             date: 'June 2026' },
+      { url: 'posts/best-badminton-shop-kota-kinabalu-ast-sports-centre.html', img: 'posts/images/ast-sports-centre-shopfront-kk.jpg',     alt: 'AST Sports Centre badminton shop in Kota Kinabalu',                        cat: 'Sports',       title: 'The Best Badminton Shop in KK: AST Sports Centre',                        excerpt: 'Decades in the game. Cheapest prices. Best stringing in KK. Right next to the Foochow courts.',     date: 'June 2026' },
+      { url: 'posts/climbing-mount-kinabalu-guide.html',                  img: 'posts/images/11-kinabalu-above-clouds-blue-sky.jpg',        alt: 'Above the clouds on Mount Kinabalu, Sabah',                                cat: 'Things To Do', title: "I Climbed Mount Kinabalu. Here's Everything You Need to Know.",           excerpt: 'Booking, training, Kampung Adidas, and what it actually feels like standing at 4,095m.',            date: 'June 2026' },
+      { url: 'posts/best-bak-kut-teh-kota-kinabalu.html',                 img: 'posts/images/yu-kee-spread.jpg',                           alt: 'Yu Kee Bak Kut Teh spread with pork belly, meatballs and yau char kwai',  cat: 'Best Food',    title: 'The Best Bak Kut Teh in Kota Kinabalu: Yu Kee',                           excerpt: 'Deep herbal broth, fall-off-the-bone pork, free soup refills. Yu Kee on Jalan Gaya is the answer.', date: 'June 2026' },
+      { url: 'posts/best-seafood-kota-kinabalu.html',                     img: 'posts/images/sasa-seafood-restaurant-exterior.jpg',         alt: 'Sasa Seafood Restaurant exterior in Penampang, Kota Kinabalu',             cat: 'Best Food',    title: 'Sasa Seafood Restaurant: Best Seafood in Kota Kinabalu?',                 excerpt: 'Fresh from the tank, cooked fast, priced right. Around RM40 per head for a full spread.',           date: 'June 2026' },
+    ];
+
+    const grid = document.getElementById('stories-grid');
+    grid.innerHTML = stories.map(p => `
+      <a href="${p.url}" class="story-item">
+        <div class="story-item__img"><img src="${p.img}" alt="${p.alt}" loading="lazy"></div>
+        <span class="story-item__cat">${p.cat}</span>
+        <div class="story-item__title">${p.title}</div>
+        <p class="story-item__excerpt">${p.excerpt}</p>
+        <span class="story-item__date">${p.date}</span>
+      </a>`).join('');
   </script>
 </body>
 </html>
