@@ -36,6 +36,10 @@ to fit the short-sentence voice. Verified: 0 em dashes remain site-wide.
 
 All JSON-LD validated as parseable. 348 insertions across 14 files.
 
+### Added Google Analytics (GA4)
+- Measurement ID `G-HNZPVMELX2`, standard `gtag.js` snippet in `<head>` of all
+  14 pages (right after the viewport meta). Live on push `8a947a2`.
+
 ---
 
 ## GSC status (checked this session)
