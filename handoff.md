@@ -56,6 +56,14 @@ All JSON-LD validated as parseable. 348 insertions across 14 files.
   total). Needs GoatCounter's visitor-counter endpoint enabled in Settings, or
   it returns nothing.
 
+### GoatCounter settings
+- **Data retention: 0 days** = keep data forever. Left as-is (we want long-term
+  trend data; a retention limit would shrink the footer "total" over time).
+- **Ignore IPs**: owner's current public IP is `60.53.212.64` (dynamic, may
+  rotate). Add it under Settings → Ignore IPs so own visits don't inflate counts.
+  Also set the per-browser ignore flag on phone / other devices (IP only covers
+  the home network).
+
 ---
 
 ## GSC status (checked this session)
@@ -102,8 +110,16 @@ Homepage Latest Stories (locked at 3, do not change):
 ---
 
 ## Next up (no confirmed plans)
-- Owner: clear the manual GSC to-dos above.
+- Owner: clear the manual GSC to-dos above (remove stale sitemap_index.xml;
+  optionally request indexing on the guo-tie post).
+- Owner: in GoatCounter, confirm visitor-counter endpoint is enabled and add
+  the ignore-IP / browser flag (see GoatCounter settings above).
 - blog.html / about.html could get dedicated OG images (still using the
   Kinabalu above-clouds site default). Not urgent.
 - Content ideas in CLAUDE.md: durian stalls, Ramadan bazaars, beaches,
   pickleball, cost of living.
+
+---
+
+*Session ended ~2:30am, Jun 11. Everything above is committed and pushed to
+`main` / live. Goodnight.*
