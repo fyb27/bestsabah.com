@@ -317,9 +317,26 @@
     </ul>
     <p class="footer-copy">&#169; 2026 BestSabah.com, Kota Kinabalu, Malaysia</p>
     <p class="footer-copy"><a href="https://sabahwebs.com" target="_blank" rel="noopener">Web design Sabah</a></p>
+    <p class="footer-copy" id="footer-stats" hidden></p>
   </footer>
 
   <button id="back-to-top" title="Back to top">&#8679;</button>
   <script src="../js/post.js?v=7"></script>
+  <script>
+    /* Private view counter. Only shows when ?me is in the URL. */
+    (function () {
+      if (!new URLSearchParams(location.search).has('me')) return;
+      var el = document.getElementById('footer-stats');
+      if (!el) return;
+      var base = 'https://bestsabah.goatcounter.com/counter/';
+      Promise.all([
+        fetch(base + encodeURIComponent(location.pathname) + '.json').then(function (r) { return r.json(); }),
+        fetch(base + 'TOTAL.json').then(function (r) { return r.json(); })
+      ]).then(function (res) {
+        el.textContent = res[0].count + ' views on this page · ' + res[1].count + ' total site views';
+        el.hidden = false;
+      }).catch(function () {});
+    })();
+  </script>
 </body>
 </html>

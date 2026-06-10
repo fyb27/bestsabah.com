@@ -689,6 +689,7 @@
     </ul>
     <p class="footer__copy">&#169; 2026 BestSabah.com</p>
     <p class="footer__copy"><a href="https://sabahwebs.com" target="_blank" rel="noopener">Web design Sabah</a></p>
+    <p class="footer__copy" id="footer-stats" hidden></p>
   </footer>
 
   <script>
@@ -715,6 +716,22 @@
         <p class="story-item__excerpt">${p.excerpt}</p>
         <span class="story-item__date">${p.date}</span>
       </a>`).join('');
+  </script>
+  <script>
+    /* Private view counter. Only shows when ?me is in the URL. */
+    (function () {
+      if (!new URLSearchParams(location.search).has('me')) return;
+      var el = document.getElementById('footer-stats');
+      if (!el) return;
+      var base = 'https://bestsabah.goatcounter.com/counter/';
+      Promise.all([
+        fetch(base + encodeURIComponent(location.pathname) + '.json').then(function (r) { return r.json(); }),
+        fetch(base + 'TOTAL.json').then(function (r) { return r.json(); })
+      ]).then(function (res) {
+        el.textContent = res[0].count + ' views on this page · ' + res[1].count + ' total site views';
+        el.hidden = false;
+      }).catch(function () {});
+    })();
   </script>
 </body>
 </html>

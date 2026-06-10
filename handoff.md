@@ -45,6 +45,17 @@ All JSON-LD validated as parseable. 348 insertions across 14 files.
 - GA4 fully removed from all pages (0 references remain). The GA property still
   exists in the owner's Google account if ever needed again.
 
+### Private footer view counter
+- All 14 pages have a hidden `<p id="footer-stats">` in the footer + a small
+  inline script before `</body>`. Reuses the existing `footer-copy` /
+  `footer__copy` class, so no new CSS.
+- It does nothing for normal visitors. Add `?me` to any URL (e.g.
+  `https://bestsabah.com/?me`) and it fetches GoatCounter's counter API and
+  shows "<N> views on this page · <M> total site views".
+- Uses `…/counter/<path>.json` (per page) and `…/counter/TOTAL.json` (site
+  total). Needs GoatCounter's visitor-counter endpoint enabled in Settings, or
+  it returns nothing.
+
 ---
 
 ## GSC status (checked this session)
