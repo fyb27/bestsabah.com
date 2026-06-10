@@ -53,8 +53,13 @@ All JSON-LD validated as parseable. 348 insertions across 14 files.
   `https://bestsabah.com/?me`) and it fetches GoatCounter's counter API and
   shows "<N> views on this page · <M> total site views".
 - Uses `…/counter/<path>.json` (per page) and `…/counter/TOTAL.json` (site
-  total). Needs GoatCounter's visitor-counter endpoint enabled in Settings, or
-  it returns nothing.
+  total). Both verified live and returning valid JSON.
+- **Status: working.** The "allow using the visitor counter" setting is now
+  enabled in GoatCounter, so the 403 is gone. Endpoints currently return
+  `count: 0` (brand-new tracker + owner's IP ignored = expected). Will climb
+  once real outside visitors land.
+- Note: the counter endpoint is cached, so the footer number can lag real
+  traffic by a while. The GoatCounter dashboard is the real-time source of truth.
 
 ### GoatCounter settings
 - **Data retention: 0 days** = keep data forever. Left as-is (we want long-term
@@ -121,5 +126,6 @@ Homepage Latest Stories (locked at 3, do not change):
 
 ---
 
-*Session ended ~2:30am, Jun 11. Everything above is committed and pushed to
-`main` / live. Goodnight.*
+*Session ended ~3am, Jun 11. Everything above is committed and pushed to
+`main` / live. Footer counter confirmed working (returns 0, as expected for a
+new tracker). Goodnight.*
