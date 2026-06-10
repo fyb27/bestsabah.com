@@ -36,9 +36,14 @@ to fit the short-sentence voice. Verified: 0 em dashes remain site-wide.
 
 All JSON-LD validated as parseable. 348 insertions across 14 files.
 
-### Added Google Analytics (GA4)
-- Measurement ID `G-HNZPVMELX2`, standard `gtag.js` snippet in `<head>` of all
-  14 pages (right after the viewport meta). Live on push `8a947a2`.
+### Analytics: switched GA4 to GoatCounter
+- Briefly added GA4 (`G-HNZPVMELX2`), then swapped it out for GoatCounter at the
+  owner's call: lighter (~3.5KB vs ~90KB), cookie-free, privacy-friendly, and
+  enough depth for a blog.
+- GoatCounter snippet (`https://bestsabah.goatcounter.com/count`) in `<head>` of
+  all 14 pages. Dashboard: https://bestsabah.goatcounter.com/
+- GA4 fully removed from all pages (0 references remain). The GA property still
+  exists in the owner's Google account if ever needed again.
 
 ---
 
