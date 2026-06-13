@@ -131,9 +131,16 @@
 
     /* ── HERO ── */
     .hero {
-      position: relative;
+      position: sticky;
+      top: 0;
       height: 100vh;
       overflow: hidden;
+    }
+
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      will-change: transform;
     }
 
     .hero__img {
@@ -141,6 +148,13 @@
       height: 100%;
       object-fit: cover;
       object-position: center 30%;
+    }
+
+    /* Content slides up over the sticky hero */
+    .page-content {
+      position: relative;
+      z-index: 3;
+      background: #fff;
     }
 
     .hero__overlay {
@@ -580,7 +594,9 @@
 
   <!-- HERO: full screen, text bottom left -->
   <section class="hero">
-    <img class="hero__img" src="posts/images/11-kinabalu-above-clouds-blue-sky.jpg" width="2560" height="1920" alt="Above the clouds on Mount Kinabalu, Sabah">
+    <div class="hero-media">
+      <img class="hero__img" src="posts/images/11-kinabalu-above-clouds-blue-sky.jpg" width="2560" height="1920" alt="Above the clouds on Mount Kinabalu, Sabah">
+    </div>
     <div class="hero__overlay"></div>
     <div class="hero__text">
       <span class="hero__label">Things To Do</span>
@@ -588,6 +604,8 @@
       <a href="posts/climbing-mount-kinabalu-guide.html" class="hero__read">Read the guide</a>
     </div>
   </section>
+
+  <main class="page-content">
 
   <!-- INTRO -->
   <div class="intro">
@@ -692,12 +710,43 @@
     <p class="footer__copy" id="footer-stats" hidden></p>
   </footer>
 
+  </main>
+
   <script>
     const open = document.getElementById('nav-open');
     const close = document.getElementById('nav-close');
     const overlay = document.getElementById('nav-overlay');
     open.addEventListener('click', () => overlay.classList.add('is-open'));
     close.addEventListener('click', () => overlay.classList.remove('is-open'));
+  </script>
+
+  <script>
+    /* Hero curtain: parallax drift + zoom on the image, fade + counter-drift on the text */
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const media = document.querySelector('.hero-media');
+      const text = document.querySelector('.hero__text');
+      if (!media || !text) return;
+      let ticking = false;
+
+      function update() {
+        ticking = false;
+        const h = window.innerHeight;
+        const y = Math.max(0, Math.min(window.scrollY, h));
+        const p = y / h;
+        media.style.transform = `translateY(${-y * 0.3}px) scale(${1 + p * 0.1})`;
+        text.style.transform = `translateY(${-y * 0.22}px)`;
+        const fade = Math.max(0, 1 - p / 0.62);
+        text.style.opacity = fade;
+        text.style.pointerEvents = fade === 0 ? 'none' : '';
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+      }, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    })();
   </script>
 
   <script>
