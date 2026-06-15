@@ -1,6 +1,37 @@
-# Handoff — June 13, 2026
+# Handoff — June 16, 2026
 
-## What we did this session: sticky hero curtain effect (homepage)
+## What we did this session: cleared the Ahrefs issue report (SEO)
+
+Ahrefs flagged 11 actual issues across the site. Fixed all the controllable ones.
+Commit `6c9d65a` on `main`, pushed + verified live.
+
+### Fixed
+- **Broken image** — `hiking-bukit-padang-kk.html` linked
+  `andrew-wong-sliced-chicken-rice.jpg` (wrong word order). Repointed to the real
+  file `andrew-wong-chicken-rice-sliced.jpg`. Live → 200.
+- **Canonical homepage had no incoming internal links** — every "Home" link + logo
+  pointed to `index.html`, but canonical is `/`. Changed all 28 links site-wide to
+  `/`. This also kills the `/index.html` 3XX-redirect chain (nothing links to it now).
+- **Titles too long (10 posts)** — shortened all post `<title>`s to ≤60 chars,
+  kept keyword + `| Best Sabah`. Synced `og:title` + `twitter:title`.
+- **Meta descriptions** — trimmed 8 over-long ones to ≤160; expanded 3 short ones
+  (index, blog, contact) above 110. Everything now lands 140–159 chars. Synced
+  `og:description` + `twitter:description`.
+- **IndexNow** — generated key, committed `d68d315701bbd6450fb40da1d1b86232.txt` to
+  repo root (live, served by Pages). Submitted all 14 URLs: api.indexnow.org → 202,
+  Bing → 200. Key + how-to saved in claude-mem (reference_indexnow.md).
+- **sitemap.xml** — bumped all `lastmod` to 2026-06-16.
+
+### Not a problem
+- **HTTP → HTTPS redirect (2)** — that's GitHub Pages correctly forcing HTTPS.
+  Expected, no code change. Should be the only thing left on the next Ahrefs crawl.
+
+### Note
+All edits preserved CRLF line endings (the repo's HTML files use CRLF).
+
+---
+
+## Prior session: sticky hero curtain effect (homepage)
 
 Added a scroll-driven "curtain" effect to the homepage hero. The hero now stays
 pinned while the rest of the page slides up over it. All in `index.html`, no new
@@ -93,4 +124,4 @@ Homepage Latest Stories (locked at 3, do not change):
 
 ---
 
-*Session ended Jun 13. Hero curtain effect committed + pushed to `main` / live.*
+*Session ended Jun 16. Ahrefs SEO issues cleared (`6c9d65a`) + pushed to `main` / live. Re-crawl Ahrefs in a day or two to confirm counts drop.*
