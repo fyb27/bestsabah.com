@@ -1,6 +1,46 @@
 # Handoff — June 16, 2026
 
-## What we did this session: cleared the Ahrefs issue report (SEO)
+## Latest session: wove keyword-research terms into existing posts (SEO)
+
+Took the **BestSabah** sheet from `keyword_research_3_sites.xlsx` (50 keywords,
+Google Keyword Planner, pulled 16 Jun 2026) and folded the terms into the 9
+existing posts where they fit naturally. No new posts (owner only wants posts
+with real photos). Commit `dd4210b` on `main`, pushed + live.
+
+### Edits by post
+- **climbing-mount-kinabalu-guide.html** (richest target — the Mount Kinabalu
+  keyword cluster lives here):
+  - Added "Mount KK" + "Gunung Kinabalu" local/Malay names.
+  - Folded climb / hike / trek / trekking synonyms into one natural line.
+  - "Sabah trip" framing + a packages/tours/price paragraph
+    ("Mount Kinabalu packages and tours", "climb package").
+  - **New Via Ferrata section** (world's highest, Mountain Torq, Walk the Torq /
+    Low's Peak Circuit) + matching FAQ-schema entry. Keyword #3
+    (`mount kinabalu via ferrata`, 1K–10K, low comp) had zero coverage before.
+  - "places to visit in Sabah" in the closing verdict.
+- **hiking-bukit-padang-kk.html** — "things to do in Kota Kinabalu",
+  "places to visit in KK", "Kota Kinabalu attractions".
+- **best-shopping-mall-kota-kinabalu-imago.html** — "places to visit in Kota
+  Kinabalu" + tourist rainy-day angle.
+- **Food posts** (seafood, andrew-wong chicken rice, yii-siang ngiu chap,
+  bak kut teh, guo tie) — "Kota Kinabalu food" worked into existing lines.
+- **desa-ice-cream-kk.html** — "Kundasang trip" + "Kundasang tour packages"
+  (honest: the dairy farm is in Kundasang).
+
+### Deliberately skipped
+- **Badminton post** untouched — no keyword in the list fits it naturally.
+- Keywords with no matching post (sabah airport, sandakan hostel,
+  semporna/tawau, kinabatangan, standalone day-tour package terms) left out
+  rather than stuffed.
+
+### Checks
+- No em dashes introduced. All JSON-LD re-validated as parseable.
+- Pre-existing `--` (em-dash-style) in two titles (`andrew-wong-chicken-rice`,
+  `desa-ice-cream-kk`) left as-is — owner said no need to change.
+
+---
+
+## Earlier this session: cleared the Ahrefs issue report (SEO)
 
 Ahrefs flagged 11 actual issues across the site. Fixed all the controllable ones.
 Commit `6c9d65a` on `main`, pushed + verified live.
