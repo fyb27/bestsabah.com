@@ -38,6 +38,13 @@ with real photos). Commit `dd4210b` on `main`, pushed + live.
 - Pre-existing `--` (em-dash-style) in two titles (`andrew-wong-chicken-rice`,
   `desa-ice-cream-kk`) left as-is — owner said no need to change.
 
+### HTTPS / "exclamation in Chrome" (no action needed)
+Owner saw a "Not secure"-style exclamation on mobile Chrome. Investigated:
+`http://` 301-redirects to `https://`, apex + `www` both serve valid certs with
+no TLS error, and there's zero mixed content (`http://` resources) in the HTML.
+Site is secure. The mobile icon was transient (stale cache / mid-redirect) and
+cleared on its own. Nothing to fix.
+
 ---
 
 ## Earlier this session: cleared the Ahrefs issue report (SEO)
