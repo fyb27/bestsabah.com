@@ -14,11 +14,11 @@
 
 /* Flex row: share | article | toc */
 .post {
-  max-width: 1080px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 80px 24px 0;
   display: flex;
-  gap: 40px;
+  gap: 32px;
   align-items: flex-start;
 }
 
@@ -81,7 +81,7 @@
 /* ── TOC column ── */
 .post-sidebar {
   flex-shrink: 0;
-  width: 200px;
+  width: 180px;
   position: sticky;
   top: 35vh;
 }
@@ -201,15 +201,20 @@
   overflow: hidden;
 }
 
-.post-img--hero img {
+/* Hero stays a wide 16:9 banner. Higher specificity so the
+   .post-img img rule below does not override it (equal specificity,
+   later source order would otherwise win). */
+.post-img.post-img--hero img {
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
 }
 
+/* Inline body images use a taller 4:3 crop so portrait food shots
+   keep more of the dish instead of losing the top and bottom. */
 .post-img img {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 4/3;
   object-fit: cover;
   display: block;
 }
@@ -219,7 +224,7 @@
   clear: both;
 }
 
-.post-img--small img { aspect-ratio: 16/9; }
+.post-img--small img { aspect-ratio: 4/3; }
 
 .post-img-caption {
   font-size: 11px;
