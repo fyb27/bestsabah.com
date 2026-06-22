@@ -1,6 +1,33 @@
 # Handoff — June 22, 2026
 
-## Latest session: two new noodle posts (Tenom Mee + Tamparuli Mee) + wider post layout
+## Latest session: backdated post dates (spread March → June)
+
+Owner didn't like that all 12 posts showed **June 2026**. Spread them
+**3-per-month across March, April, May, June** so the blog reads like it's been
+running for months. **Display order on blog.html unchanged** (still newest-first,
+top to bottom) — only the dates changed, so the existing top-to-bottom order now
+maps cleanly to newest→oldest.
+
+Date assignment (top of blog = newest):
+- **June**: weng-foh tamparuli (Jun 22, kept), towering tenom (Jun 18), guo-tie (Jun 10)
+- **May**: desa ice cream (May 24), hiking bukit padang (May 15), andrew wong (May 3)
+- **April**: imago mall (Apr 26), AST badminton (Apr 14), climbing kinabalu (Apr 5)
+- **March**: yu kee bak kut teh (Mar 22), sasa seafood (Mar 12), yii siang (Mar 4)
+
+Updated every date surface for consistency:
+- Each post: Schema `datePublished` + `dateModified` (set equal) + visible
+  `.post-date` label.
+- `blog.html`: all 12 card footers.
+- `index.html`: the 3 Latest Stories dates (andrew/yii-siang/climbing).
+- `sitemap.xml`: per-post `lastmod` set to each post's backdated date (site
+  pages left at 2026-06-16).
+
+Not done: no IndexNow resubmit (dates only, no content change). Didn't touch
+the two genuinely-recent June noodle posts' June labels.
+
+---
+
+## Earlier today: two new noodle posts (Tenom Mee + Tamparuli Mee) + wider post layout
 
 Added two **Best Food** posts from owner's own watermarked photos, plus a
 site-wide post-layout/image fix. Three commits on `main`, all pushed + live.
