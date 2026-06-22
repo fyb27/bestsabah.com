@@ -1,6 +1,56 @@
-# Handoff — June 16, 2026
+# Handoff — June 22, 2026
 
-## Latest session: wove keyword-research terms into existing posts (SEO)
+## Latest session: two new noodle posts (Tenom Mee + Tamparuli Mee) + wider post layout
+
+Added two **Best Food** posts from owner's own watermarked photos, plus a
+site-wide post-layout/image fix. Three commits on `main`, all pushed + live.
+
+### New posts
+- **towering-tenom-mee-kota-kinabalu.html** — Towering Tenom Mee (丹南面家),
+  Towering Industry Centre, Jalan Penampang. 7 photos. RM12 a plate, hours
+  6:30am–2pm, closed Monday. Owner wrote the copy, I adjusted to voice.
+  Commit `159b778`.
+- **weng-foh-tamparuli-mee-kota-kinabalu.html** — Restoran Weng Foh (永和茶餐室),
+  Block E, Jalan Damai, 88300 KK. 3 photos. Tamparuli fried noodles (egg, char
+  siew, egg rolls). **Price unknown** (owner forgot — left out of body, schema
+  just `$$`). **Hours unconfirmed** — wrote "breakfast or lunch, not open at
+  night", left exact hours out of schema. Owner wrote copy, I adjusted.
+- Both: keyword-first H1/title ("Best <X> Mee in Kota Kinabalu: <shop>"), full
+  template, OG/Twitter/Breadcrumb/Article/Restaurant schema, map embed, verdict.
+- **Cross-linked both ways** (tenom ⇄ tamparuli) in body + related cards, since
+  owner wanted the Sabah-noodle posts to connect.
+- Added cards to top of `blog.html`; both URLs added to `sitemap.xml`
+  (lastmod 2026-06-22). **index.html Latest Stories left alone** (locked at 3).
+- IndexNow: submitted tenom post + blog.html → 200.
+
+### Image workflow note
+Photos came from `pics/tenom mee/` and `pics/tamparuli mee/` (owner already ran
+`watermark.py`, which places the "bestsabah.com" mark inside the visible 16:9
+band). Copied + renamed into `posts/images/` with SEO names
+(`towering-tenom-mee-*.jpg`, `weng-foh-tamparuli-mee-*.jpg`). Originals in
+`pics/` are untracked, left in place.
+
+### Site-wide layout fix (`css/post.css`, commit `ab6bccb`)
+Owner felt posts were too narrow + images cropped poorly.
+- `.post` container 1080px → **1280px**; gap 40→32; TOC 200→180. Reading column
+  grew ~700px → ~940px.
+- Inline body images 16:9 → **4:3** (`object-fit: cover`) so portrait food shots
+  keep the whole dish. **Hero stays 16:9** (specificity bumped to
+  `.post-img.post-img--hero img` so the body rule can't override it).
+- Affects ALL posts. Many older photos are 4:3 native, so for them this is
+  near-zero crop. Watermarks (baked for 16:9) still land bottom-right in 4:3.
+
+### Voice note (new memory saved)
+Owner pushed back that my cleaned-up tamparuli draft "doesnt sound very
+optimistic." Lesson saved to claude-mem (`feedback-keep-energy`): when adjusting
+owner's drafts, fix typos / em dashes / forced slang but NEVER flatten the
+enthusiasm. Re-punched the tamparuli copy warmer.
+
+---
+
+## Earlier — June 16, 2026
+
+## Wove keyword-research terms into existing posts (SEO)
 
 Took the **BestSabah** sheet from `keyword_research_3_sites.xlsx` (50 keywords,
 Google Keyword Planner, pulled 16 Jun 2026) and folded the terms into the 9
@@ -152,7 +202,9 @@ cafes, day trips.
 
 ## Current site state
 
-Posts live (10):
+Posts live (12):
+- weng-foh-tamparuli-mee-kota-kinabalu.html (Best Food) — NEW Jun 22
+- towering-tenom-mee-kota-kinabalu.html (Best Food) — NEW Jun 22
 - best-guo-tie-dumplings-kota-kinabalu.html (Best Food)
 - desa-ice-cream-kk.html (Best Food)
 - andrew-wong-chicken-rice.html (Best Food)
@@ -171,4 +223,4 @@ Homepage Latest Stories (locked at 3, do not change):
 
 ---
 
-*Session ended Jun 16. Ahrefs SEO issues cleared (`6c9d65a`) + pushed to `main` / live. Re-crawl Ahrefs in a day or two to confirm counts drop.*
+*Session ended Jun 22. Two new noodle posts (`159b778`) + wider post layout / 4:3 images (`ab6bccb`) on `main`, all live. Open follow-ups: get the Weng Foh tamparuli mee price + exact hours from owner and fill them in; consider submitting both new URLs to GSC for indexing.*
