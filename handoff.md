@@ -223,4 +223,4 @@ Homepage Latest Stories (locked at 3, do not change):
 
 ---
 
-*Session ended Jun 22. Two new noodle posts (`159b778`) + wider post layout / 4:3 images (`ab6bccb`) on `main`, all live. Open follow-ups: get the Weng Foh tamparuli mee price + exact hours from owner and fill them in; consider submitting both new URLs to GSC for indexing.*
+*Session ended Jun 22. Three commits on `main`, all live: Tenom Mee post (`159b778`), wider post layout + 4:3 images (`ab6bccb`), Tamparuli Mee post + cross-links + handoff (`d03c55b`). IndexNow pinged for both new posts + blog (200). **Open follow-ups:** get the Weng Foh tamparuli mee **price** + exact **opening hours** from owner and fill them in (body + Restaurant schema); optionally submit both new URLs to GSC for indexing. Owner called it a day.*
