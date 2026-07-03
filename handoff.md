@@ -1,3 +1,72 @@
+# Handoff — July 3, 2026
+
+## This session: footer credit + SabahWebs backlink post (Lifestyle)
+
+Two jobs. Both live on `main`, all deploys verified on production.
+
+### 1. Footer credit changed site-wide
+Changed the footer credit line from "Web design Sabah" to **"Website by SabahWebs"**
+across all 16 pages (link to `https://sabahwebs.com` was already there on 15;
+only the visible text changed). `contact.html` had no credit line, added one to
+match. Commit `3365eb0`.
+
+### 2. New post: `posts/sabahans-building-things-worth-knowing.html` (Lifestyle)
+Owner wants sabahwebs.com to rank for **"web design sabah"** / "web design kota
+kinabalu". This bestsabah post is **backlink #1** toward that, written as a
+"local makers" spotlight so the sabahwebs link reads as a genuine editorial
+citation, not a plant.
+
+- **Format:** spotlight of 4 real Sabah businesses, each linked out (so the
+  sabahwebs link isn't the only outbound link):
+  1. Permai Polyclinics Fortuna (24hr clinic) → permaipolyclinicsfortuna.com
+  2. ProSteel (scaffolding) → prosteelmy.com
+  3. Orou Sapulot (eco-tours) → borneo.tours
+  4. **SabahWebs** (web design studio) → sabahwebs.com
+  - The 3 non-sabahwebs sites are sabahwebs's own clients, so featuring them
+    also props up its portfolio context.
+- **Backlink mechanics (what actually passes ranking value):**
+  - Link #1 anchor = **"web design in Sabah"** (partial-match, the keyword one).
+  - Link #2 anchor = **"SabahWebs"** (brand). One keyword + one brand anchor =
+    natural, not over-optimized.
+  - Deliberately NOT exact-match "web design sabah" as anchor (single-source
+    exact-match from an owned site reads as manipulation). Owner asked to see
+    the exact phrase, so it's present as **visible body text** ("...Googling
+    'web design Sabah'...") instead, which is safe.
+- **Ownership hidden:** first draft said "close to home for me, since I run this
+  site" — removed, because it would out the owner as running both sites.
+- **Image:** used a **Playwright screenshot of the sabahwebs.com homepage**
+  (`posts/images/sabahwebs-web-design-sabah.jpg`, the "Web design & SEO, built
+  from Sabah" hero). No Mount Kinabalu stock pic (owner rejected it). Screenshot
+  is the post's inline image + og/twitter/schema image + blog card thumbnail.
+- **Integration:** blog card added at the **bottom** of the grid (owner wanted it
+  low, not top), `data-cat="lifestyle"`. `sitemap.xml` entry added (lastmod
+  2026-07-03, priority 0.9). **index.html Latest Stories left alone** (locked at 3).
+  Fixed a broken related-card image (`imago-mall-exterior.jpg` →
+  `imago-mall-kk-exterior.jpg`).
+- **IndexNow:** post + blog.html submitted, 200.
+- Commits: `76a2be2` (post), `fc1642f` (screenshot + ownership/anchor fixes),
+  `f455dfb` (empty retrigger, see below), `130b2e9` (imago fix + visible keyword).
+
+### Deploy gotcha (for next time)
+GitHub Pages threw a transient `Deployment failed, try again later.` on one push
+(`fc1642f`) mid `syncing_files`, and the auto-rerun got stuck `queued`. Fix that
+worked: push an **empty commit** (`git commit --allow-empty`) to grab a clean
+runner. Check real deploy status via **Actions** (`gh run list`), NOT the legacy
+`/pages/builds` API (it showed a stale stuck "building" the whole time).
+
+### Still open on the sabahwebs ranking goal
+This post is one backlink. It will NOT rank "web design sabah" alone. The real
+levers are all on the **sabahwebs side**, still untouched:
+1. sabahwebs's own service-page title/H1/body targeting the keyword.
+2. **Google Business Profile** (the query fires a map pack; no GBP = invisible
+   there). Service-area business, video verification.
+3. Local citations with consistent NAP (Bing Places, directories).
+Owner was offered a sabahwebs on-page audit or a GBP/citation plan next.
+
+Post count is now **13** (added 1 Lifestyle). Site's first Lifestyle post.
+
+---
+
 # Handoff — June 22, 2026
 
 ## Latest session: backdated post dates (spread March → June)
