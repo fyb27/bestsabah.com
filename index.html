@@ -684,7 +684,29 @@
       <span class="stories__label">Latest Stories</span>
       <a href="blog.html" class="categories__all">View all</a>
     </div>
-    <div class="stories__grid" id="stories-grid"></div>
+    <div class="stories__grid" id="stories-grid">
+      <a href="posts/andrew-wong-chicken-rice.html" class="story-item">
+        <div class="story-item__img"><img src="posts/images/andrew-wong-chicken-rice-sliced.jpg" alt="Sliced Hainanese chicken from Andrew Wong, Damai Plaza KK" loading="lazy"></div>
+        <span class="story-item__cat">Best Food</span>
+        <div class="story-item__title">Best Chicken Rice in Kota Kinabalu -- Andrew Wong Hainanese Chicken Rice</div>
+        <p class="story-item__excerpt">Hidden in Damai Plaza. Massive portions, juicy chicken, and a ginger sauce worth the drive.</p>
+        <span class="story-item__date">May 2026</span>
+      </a>
+      <a href="posts/yii-siang-beef-noodle-kk.html" class="story-item">
+        <div class="story-item__img"><img src="posts/images/yii-siang-beef-soup.jpg" alt="Bowl of clear beef soup at Yii Siang with tender beef cuts" loading="lazy"></div>
+        <span class="story-item__cat">Best Food</span>
+        <div class="story-item__title">Yii Siang Beef Noodle, Inanam: Best Beef Noodles in KK</div>
+        <p class="story-item__excerpt">RM14 for a huge bowl of clear beef soup. Proper toppings. Yii Siang has been doing this right for years.</p>
+        <span class="story-item__date">March 2026</span>
+      </a>
+      <a href="posts/climbing-mount-kinabalu-guide.html" class="story-item">
+        <div class="story-item__img"><img src="posts/images/11-kinabalu-above-clouds-blue-sky.jpg" alt="Above the clouds on Mount Kinabalu, Sabah" loading="lazy"></div>
+        <span class="story-item__cat">Things To Do</span>
+        <div class="story-item__title">I Climbed Mount Kinabalu. Here's Everything You Need to Know.</div>
+        <p class="story-item__excerpt">Booking, training, Kampung Adidas, and what it actually feels like standing at 4,095m.</p>
+        <span class="story-item__date">April 2026</span>
+      </a>
+    </div>
   </section>
 
   <!-- CONTACT -->
@@ -706,7 +728,7 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <p class="footer__copy">&#169; 2026 BestSabah.com</p>
-    <p class="footer__copy"><a href="https://sabahwebs.com" target="_blank" rel="noopener">Website by SabahWebs</a></p>
+    <p class="footer__copy"><a href="https://sabahwebs.com" target="_blank" rel="noopener nofollow">Website by SabahWebs</a></p>
     <p class="footer__copy" id="footer-stats" hidden></p>
   </footer>
 
@@ -749,23 +771,6 @@
     })();
   </script>
 
-  <script>
-    const stories = [
-      { url: 'posts/andrew-wong-chicken-rice.html',               img: 'posts/images/andrew-wong-chicken-rice-sliced.jpg',         alt: 'Sliced Hainanese chicken from Andrew Wong, Damai Plaza KK',   cat: 'Best Food',    title: 'Best Chicken Rice in Kota Kinabalu -- Andrew Wong Hainanese Chicken Rice', excerpt: 'Hidden in Damai Plaza. Massive portions, juicy chicken, and a ginger sauce worth the drive.', date: 'May 2026' },
-      { url: 'posts/yii-siang-beef-noodle-kk.html',               img: 'posts/images/yii-siang-beef-soup.jpg',                     alt: 'Bowl of clear beef soup at Yii Siang with tender beef cuts',  cat: 'Best Food',    title: 'Yii Siang Beef Noodle, Inanam: Best Beef Noodles in KK',                  excerpt: 'RM14 for a huge bowl of clear beef soup. Proper toppings. Yii Siang has been doing this right for years.', date: 'March 2026' },
-      { url: 'posts/climbing-mount-kinabalu-guide.html',           img: 'posts/images/11-kinabalu-above-clouds-blue-sky.jpg',       alt: 'Above the clouds on Mount Kinabalu, Sabah',                   cat: 'Things To Do', title: "I Climbed Mount Kinabalu. Here's Everything You Need to Know.",           excerpt: 'Booking, training, Kampung Adidas, and what it actually feels like standing at 4,095m.',     date: 'April 2026' },
-    ];
-
-    const grid = document.getElementById('stories-grid');
-    grid.innerHTML = stories.map(p => `
-      <a href="${p.url}" class="story-item">
-        <div class="story-item__img"><img src="${p.img}" alt="${p.alt}" loading="lazy"></div>
-        <span class="story-item__cat">${p.cat}</span>
-        <div class="story-item__title">${p.title}</div>
-        <p class="story-item__excerpt">${p.excerpt}</p>
-        <span class="story-item__date">${p.date}</span>
-      </a>`).join('');
-  </script>
   <script>
     /* Private view counter. Only shows when ?me is in the URL. */
     (function () {

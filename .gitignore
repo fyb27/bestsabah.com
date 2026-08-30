@@ -3,3 +3,11 @@ backup/
 watermark.py
 input/
 output/
+handoff.md
+GSC/
+keyword_research_3_sites.xlsx
+fix_rotation.py
+pics/
+.playwright-mcp/
+.mcp.json
+*.png.tmp
