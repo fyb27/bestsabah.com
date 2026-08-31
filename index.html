@@ -444,6 +444,55 @@
       transition: opacity 0.2s;
     }
 
+
+    /* ── ARCHIVE LIST ── */
+    .archive { border-top: 1px solid #e8e8e8; }
+
+    .archive__header { padding: 32px 0 20px; }
+
+    .archive__row {
+      display: grid;
+      grid-template-columns: 110px 1fr 130px;
+      gap: 24px;
+      align-items: baseline;
+      padding: 22px 0;
+      border-top: 1px solid #e8e8e8;
+      text-decoration: none;
+    }
+
+    .archive__row:hover .archive__title { opacity: 0.5; }
+
+    .archive__date,
+    .archive__cat {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #999;
+      white-space: nowrap;
+    }
+
+    .archive__cat { text-align: right; }
+
+    .archive__body { display: block; }
+
+    .archive__title {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      line-height: 1.35;
+      color: #1a1a1a;
+      transition: opacity 0.3s ease;
+    }
+
+    .archive__excerpt {
+      display: block;
+      font-size: 13px;
+      color: #888;
+      line-height: 1.6;
+      margin-top: 6px;
+    }
+
     .story-item__excerpt {
       font-size: 13px;
       color: #888;
@@ -559,6 +608,8 @@
       .about { grid-template-columns: 1fr; gap: 40px; padding: 80px 24px; }
       .stories { padding: 0 24px; }
       .stories__grid { grid-template-columns: 1fr; }
+      .archive__row { grid-template-columns: 1fr; gap: 8px; padding: 20px 0; }
+      .archive__cat { text-align: left; }
       .story-item,
       .story-item:nth-child(3n+1),
       .story-item:nth-child(3n+2),
@@ -707,6 +758,89 @@
         <span class="story-item__date">April 2026</span>
       </a>
     </div>
+      <div class="archive">
+        <div class="archive__header"><span class="stories__label">More Stories</span></div>
+        <a href="posts/sabahans-building-things-worth-knowing.html" class="archive__row">
+          <span class="archive__date">3 JUL 2026</span>
+          <span class="archive__body">
+            <span class="archive__title">Sabahans Building Things Worth Knowing</span>
+            <span class="archive__excerpt">A 24-hour clinic, a scaffolding supplier, an eco-tour crew, and a KK web design studio. Locals doing real work.</span>
+          </span>
+          <span class="archive__cat">Lifestyle</span>
+        </a>
+        <a href="posts/weng-foh-tamparuli-mee-kota-kinabalu.html" class="archive__row">
+          <span class="archive__date">22 JUN 2026</span>
+          <span class="archive__body">
+            <span class="archive__title">Best Tamparuli Mee in KK: Weng Foh, Damai</span>
+            <span class="archive__excerpt">Fried noodles with egg, char siew and egg rolls. Better than the original in Tamparuli, no drive needed.</span>
+          </span>
+          <span class="archive__cat">Best Food</span>
+        </a>
+        <a href="posts/towering-tenom-mee-kota-kinabalu.html" class="archive__row">
+          <span class="archive__date">18 JUN 2026</span>
+          <span class="archive__body">
+            <span class="archive__title">Best Tenom Mee in KK: Towering Tenom Mee</span>
+            <span class="archive__excerpt">Fried noodles in silky egg gravy with fatty char siew. Hidden from tourists, packed with locals. Cheap and big portions.</span>
+          </span>
+          <span class="archive__cat">Best Food</span>
+        </a>
+        <a href="posts/best-guo-tie-dumplings-kota-kinabalu.html" class="archive__row">
+          <span class="archive__date">10 JUN 2026</span>
+          <span class="archive__body">
+            <span class="archive__title">The Best Guo Tie and Dumplings in Kota Kinabalu: Ching Jie, Foh Sang</span>
+            <span class="archive__excerpt">Crispy wrapper, juicy pork, fried to order. A locals-only stall inside Kai Shun. RM12 for ten.</span>
+          </span>
+          <span class="archive__cat">Best Food</span>
+        </a>
+        <a href="posts/desa-ice-cream-kk.html" class="archive__row">
+          <span class="archive__date">24 MAY 2026</span>
+          <span class="archive__body">
+            <span class="archive__title">DESA Ice Cream is Now in KK. No Kundasang Drive Required.</span>
+            <span class="archive__excerpt">DESAMOO soft serve at DESA Fresh Mart, Damai Plaza Luyang. Highland dairy ice cream, now 5 minutes from town.</span>
+          </span>
+          <span class="archive__cat">Best Food</span>
+        </a>
+        <a href="posts/hiking-bukit-padang-kk.html" class="archive__row">
+          <span class="archive__date">15 MAY 2026</span>
+          <span class="archive__body">
+            <span class="archive__title">Hiking Bukit Padang: The Free Hike Right in the Middle of KK</span>
+            <span class="archive__excerpt">Free entry, 40 minutes to the top, real forest the whole way. And that view of KK city when you get there.</span>
+          </span>
+          <span class="archive__cat">Things To Do</span>
+        </a>
+        <a href="posts/best-shopping-mall-kota-kinabalu-imago.html" class="archive__row">
+          <span class="archive__date">26 APR 2026</span>
+          <span class="archive__body">
+            <span class="archive__title">The Best Shopping Mall in Kota Kinabalu: Imago</span>
+            <span class="archive__excerpt">Clean, well managed, great brands and solid food. The only mall answer you need in KK.</span>
+          </span>
+          <span class="archive__cat">Things To Do</span>
+        </a>
+        <a href="posts/best-badminton-shop-kota-kinabalu-ast-sports-centre.html" class="archive__row">
+          <span class="archive__date">14 APR 2026</span>
+          <span class="archive__body">
+            <span class="archive__title">The Best Badminton Shop in KK: AST Sports Centre</span>
+            <span class="archive__excerpt">Decades in the game. Cheapest prices. Best stringing in KK. Right next to the Foochow courts.</span>
+          </span>
+          <span class="archive__cat">Sports</span>
+        </a>
+        <a href="posts/best-bak-kut-teh-kota-kinabalu.html" class="archive__row">
+          <span class="archive__date">22 MAR 2026</span>
+          <span class="archive__body">
+            <span class="archive__title">The Best Bak Kut Teh in Kota Kinabalu: Yu Kee</span>
+            <span class="archive__excerpt">Deep herbal broth, fall-off-the-bone pork, free soup refills. Yu Kee on Jalan Gaya is the answer.</span>
+          </span>
+          <span class="archive__cat">Best Food</span>
+        </a>
+        <a href="posts/best-seafood-kota-kinabalu.html" class="archive__row">
+          <span class="archive__date">12 MAR 2026</span>
+          <span class="archive__body">
+            <span class="archive__title">Sasa Seafood Restaurant: Best Seafood in Kota Kinabalu?</span>
+            <span class="archive__excerpt">Fresh from the tank, cooked fast, priced right. Around RM40 per head for a full spread.</span>
+          </span>
+          <span class="archive__cat">Best Food</span>
+        </a>
+      </div>
   </section>
 
   <!-- CONTACT -->
